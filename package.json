@@ -2,7 +2,7 @@
   "name": "heard",
   "private": true,
   "version": "0.0.1",
-  "description": "HEARD rights-awareness and assistance platform foundational workspace",
+  "description": "HEARD helps people understand their rights and find paths to support and accountability.",
   "scripts": {
     "check:foundation": "node scripts/check-foundation.mjs",
     "test": "node --test tests/foundation.test.mjs",
