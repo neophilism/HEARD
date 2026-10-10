@@ -11,86 +11,95 @@
 
 ---
 
-## 0. HEARD mission and inclusive product doctrine (supersedes any narrower framing below)
+## 0. Product experience, public language and content contract
 
-**Mission:** Help anyone understand their rights, examine potentially improper treatment by government or state-linked actors, ask confidential questions, preserve information, find appropriate help, and choose whether or how to seek accountability. The platform welcomes people who know they have been wronged, people who suspect an irregularity, those seeking basic legal education, witnesses, relatives, people acting under pressure, people who may have committed offenses, people who have never been accused of anything, and people helping others. **Neither a prior allegation, diagnosis, arrest, conviction, plea, political belief, demographic identity, nor certainty of injustice is a prerequisite.**
+### 0.1 Product idea
 
-**Correct framing:** This is an inclusive rights-awareness, assistance and evidence platform. Public testimony is ONE optional outcome. A visitor must be able to get useful educational information or request private assistance without claiming victimhood, asserting criminal misconduct, endorsing Justice For All politics, identifying a legal cause of action, or volunteering an accusation.
+**HEARD gives people a clearer way to understand their rights and what to do next.** It connects accessible legal information, questions about government actions, practical assistance, personal experiences and supporting records. It is an initiative of Justice For All with its own public-facing identity and independent service boundaries.
 
-**Tone:** clear, humane, non-patronizing, nonpartisan, privacy-conscious, action-optional. No gavel, courtroom ultimatum, "TESTIFY", "report a crime now", presumed victim status, assumed wrongdoing, or coercive narrative. Avoid language that presupposes an unverified account is proven. Do not affirm extraordinary, disputed, or uncertain allegations as established fact; consider independent evidence, alternative explanations and safety.
+The platform helps someone who wants a straightforward answer, someone seeking support after a difficult experience, a witness or relative, someone documenting possible misconduct, and someone who has useful information or skills to contribute. These are examples for service design, **not labels that the site should assign to visitors**.
 
-### 0.1 Homepage information architecture, hard acceptance
+**Public positioning:** *Your rights. Your voice. Your next step.*
 
-Primary heading: **"Your rights matter."** Supporting text: **"Wondering about something that happened? Looking for information, help, or a safe place to share? You can start here—without knowing what to call it or going public."** Final copy must be user-tested and localized. Six equally discoverable primary paths:
+**Public description:** *HEARD helps people understand their rights, make sense of government actions that affect their lives, and find paths to answers and accountability.*
 
-1. **Understand my rights** — browse plain-language legal explainers, realistic scenarios, source law, jurisdiction, date checked, qualifications and links to counsel.
-2. **Ask about something that happened** — low-pressure private inquiry, selectable "I'm not sure" choices, optional incident details, no compulsory public story.
-3. **Get help privately** — anonymous/pseudonymous/identified contact modes, recipient scopes and limitations, choice to request lawyer/advocate/nonlegal support.
-4. **Share an experience** — written, video or audio narrative and evidence, optionally private forever, with distinct later public-release consent.
-5. **Help someone else** — resources for family/witnesses, carefully permissioned referrals and volunteer offers, no taking over someone else's identity.
-6. **Explore stories** — consented, curated, clearly labeled personal accounts and approved source material, without requiring account creation.
+The source of truth for interface wording is [`content/site-copy.json`](../content/site-copy.json). Its editorial and review rules are in [`docs/CONTENT_STRATEGY.md`](CONTENT_STRATEGY.md). Implement the approved language there rather than repeating conversational background or inventing new promotional text in page components.
 
-Utility navigation: emergency information, safety and privacy, languages and accessibility, how HEARD works, correction/dispute policy and platform limits. No forced signup to browse rights or public archive. No pop-up requiring identity/consent for ordinary reading. No political enrollment, donations or marketing implied.
+### 0.2 Homepage contract
 
-### 0.2 Contextual discovery, without stigmatizing categories
+The homepage should immediately explain what HEARD offers, using direct, human language. The approved opening is:
 
-Scenario entry points: government interactions; police encounters and force; protest and speech; search and seizure; involuntary hospitalization/civil commitment; detention and jail; administrative benefits and licensing; schools and child/family interactions; employment-related state decisions; retaliation/threats/coercion; discrimination; housing/property; whistleblowing; immigration; data privacy and surveillance; court proceedings and plea bargains; abuse involving public or delegated authority; and **"Other / I don't know."** This is a navigation taxonomy, not a diagnosis, accusation, or exclusive list.
+> **Your rights. Your voice. Your next step.**
+>
+> Find clear information about your rights, explore real experiences, and discover where to turn for support. Whether you have a question, something to share, or a way to help, HEARD is a place to begin.
 
-Educational scenario pages explicitly distinguish: (a) what user reports or asks, (b) which facts are missing, (c) controlling law (state/federal/local), (d) typical exceptions, (e) likely evidence to preserve, (f) time-sensitive risks such as filing deadlines, (g) where to obtain licensed counsel or relevant services, and (h) when information was last legally reviewed. Example: a law enforcement officer's statement about protest rules may or may not describe applicable law; a designation used during involuntary evaluation has jurisdiction-specific criteria and review rights; previous guilty pleas can constrain remedies but do not negate all rights.
+The primary calls to action are **Know your rights** and **Find support**. The first content section, **What brings you here?**, offers six paths, each with a clear description:
 
-### 0.3 Inclusive, graduated assistance journey
+1. **Know your rights:** browse sourced, jurisdiction-specific explainers and practical guides.
+2. **Ask a question:** raise a concern or seek an explanation of a public decision or rule.
+3. **Find support:** explore resources and seek appropriate professional or volunteer assistance.
+4. **Share an experience:** write, record, preserve and optionally publish a personal account.
+5. **Help someone else:** contribute support, evidence, skills or informed referrals.
+6. **Explore stories:** browse authorized, edited firsthand accounts and supporting documents.
 
-**Browse → explore → ask → preserve privately → seek help → optionally publish or pursue remedy** is a suggested sequence, **not a gate**. Every step can be accessed independently; users can leave and return. Never ask "Are you a victim?" as a prerequisite. Provide save-and-exit, discreet browsing and clear device/privacy warnings; do not claim a panic button erases logs, history, account traces or third-party network records. Offer explicit "no contact" and "no public sharing" defaults for all intake.
+All six must be independently reachable, understandable and accessible. Don't make the homepage look or sound like a legal filing, a political signup, or a requirement to make a formal accusation. Do not prefer a single funnel to every other use of HEARD. Public rights guides and released stories should not require an account.
 
-Distinct services: self-serve education (no privileged legal advice), educational Q&A with uncertainty and citations, private inquiry, optional referral, evidence vault, rights incident chronology, optional moderated story publication, and multi-party collaboration by case-specific grant. Legal representation arises only from separately established professional relationships, never automatically through site usage.
+Secondary navigation: How HEARD works; Privacy and safety; Contact; Editorial standards; Accessibility. Existing product safety and consent requirements apply to each relevant action.
 
-### 0.4 Rights content system and governance
+### 0.3 Clear pathways and useful content
 
-Each guide has: jurisdiction, agency/category, primary sources, statutory and regulatory citations, linked official policies where available, judicial decision context, effective/reviewed dates, author/editor and licensed legal reviewer status, reading level, translations, and explicit disclaimers. Workflow states: draft → legal/factual review → published → stale/updated → archived. Automatically flag potential change when monitored sources update, but **do not automatically rewrite legal conclusions**. Display "not checked recently" or "law may have changed" when applicable. Record disagreements and corrections transparently.
+A person may go directly to a rights guide, look up an issue, ask a question, request support, preserve documents, offer assistance, or browse stories. These workflows must function independently; a private inquiry does not become public testimony by default. Pages should help visitors understand the options and make a deliberate choice, without forcing account creation or an unrelated intake sequence.
 
-Search and browse prioritize readable concepts rather than legal jargon, with controlled synonyms: "they told me to leave a protest" → free-speech/assembly/public order; "they said I was gravely disabled" → civil commitment/rights and review. Avoid unsupported legal determinations; phrase as possibilities and questions. Free-form AI advice, if ever offered, needs separate approval, legal-safety evaluation, user consent, citations, hallucination tests, hard limits on sensitive-data sharing and human referral for consequential decisions.
+Topic navigation should cover everyday interactions with government as well as higher-stakes events: speech and protest, law enforcement, searches, detention, civil commitment, benefits and licensing, schools and families, public employment, property and housing, discrimination, immigration, surveillance and privacy, courts, whistleblowing, official threats and retaliation, and an open-ended **Other topic** path. This is a content taxonomy, not a list of presumed wrongdoing or diagnosis.
 
-### 0.5 Safeguards for coercion, vulnerability and mixed experiences
+Rights guides must answer recognizable questions, include primary sources when available, specify the jurisdiction, summarize important exceptions, note current legal review dates, identify possible evidence and time-sensitive deadlines, and explain how to reach qualified assistance. User-provided allegations and contested facts must not be promoted to independently established conclusions. Legal information is education; a professional representation relationship requires a separate arrangement.
 
-Provide a dedicated optional safety pathway for people afraid of retaliation or coercion, relatives supporting someone, people who feel ashamed/disbelieved, and those concerned about mandated processes. Ask the least identifying information necessary; provide carefully qualified confidentiality, anonymity and privilege explanations. Do not contact an allegedly involved person or agency, publish material, or file complaints for someone without specifically authorized action and an explicit legal basis. Allow trusted-person assistance without impersonation, with boundaries protecting the subject's privacy and autonomy. Equip moderators to distinguish reporting from verified facts and avoid validating unverified targeting theories as established; support real-world safety and appropriate professional resources without humiliating or dismissing visitors.
+### 0.4 How content should feel
 
-### 0.6 Explicit release gates for revised scope
+Copy should be concise, welcoming, specific, calm, competent and grounded in evidence. Use strong language for HEARD's mission, not for unverified facts. Write to someone encountering the project for the first time. Avoid conversational rebuttals, defensive exclusion lists, gratuitous legal jargon and promises that cannot be kept.
 
-HEARD is **not** ready for public intake until all of these are demonstrated:
+Use meaningful action labels such as **Explore rights guides**, **Review my question**, **Find support**, **Save a draft**, **Review who can see this**, or **Share your experience**. Do not use **Testify** as a global entry point or imply that reading, inquiry and support require a public declaration. A person's particular circumstances are relevant only when the chosen workflow requires them.
 
-- All six homepage paths work in mobile, keyboard and screen-reader checks, with no forced account or public accusation for educational use.
-- An anonymous visitor can read current, sourced rights content, navigate scenarios, and quit without mandatory identifying fields.
-- A private help seeker can safely ask a question without publishing evidence, opening a public case, or being assigned an unwanted political label.
-- A legal-explainer entry carries jurisdiction and legal-review dates; stale and unknown-jurisdiction states are handled honestly.
-- Every escalation from inquiry to case, referral, collaborator disclosure, publicity, or distributed replication requires individually meaningful consent and authorized recipient scope.
-- Tests exercise coercion fears, people with no criminal history, people with prior pleas, third-party family inquiries, involuntary hospitalization narratives, protest rules uncertainty, and volunteers; do not stereotype or pre-judge those scenarios.
-- Adversarial tests show private identities/evidence are absent from public search, analytics, notifications, cross-tenant access, public CDN, GitHub/Engine Room logs and partner events.
-- Accessibility, threat-model review, privacy/legal/retention policy, abuse handling, restore testing, and operational readiness are independently evidenced.
+Provide friendly, accurate form-help and error states, not speculative reassurance. Keep security claims scoped to actual, tested implementation. Accessibility and translation are core user experience requirements, not copy polish deferred until launch.
 
-### 0.7 Roadmap cross-cutting amendments
+### 0.5 Consent, confidential material and safety
 
-The 48 legacy implementation packages below remain as traceable engineering work units, now prefixed **HEARD-** rather than **IP-**. Every phase must implement the additional rights-content, inclusive entry point and assistance requirements above. In particular:
+Before private questions, uploads, messaging, collaboration, public publication or archival replication, explain what information is processed, who may see it, what recipients are involved, and which protections have limits. Each consequential disclosure decision must be individually meaningful. An anonymous or pseudonymous display name is not a guarantee against identification. No public story, external referral, political enrollment or distributed replication occurs automatically because a person asked a question.
 
-- HEARD-01 through HEARD-06: product doctrine, six paths, legal content architecture, scenario taxonomy, inclusive usability fixtures and threat model.
-- HEARD-07 through HEARD-14: rights browsing without login, private question workflow distinct from testimony, minimal disclosure and anonymous help, consent boundaries.
-- HEARD-15 through HEARD-28: evidence/media and optional publication only; preserve inquiry-only status without pressuring story creation.
-- HEARD-29 through HEARD-35: direct help pathways and referral workflows with no publication requirement; family/witness support and permission scopes.
-- HEARD-36 through HEARD-41: integrate Justice For All, reusable intake, FOIA and Liberty Nodes where permitted; legal-content provenance and update feeds.
-- HEARD-42 through HEARD-48: broad-persona acceptance, rights content quality, legal review, privacy/security, end-to-end UX, release and independent handoff.
+Support context-sensitive safety resources for visitors concerned about retaliation, coercion or privacy. Offer clear controls for contact preferences, third-party reports and assistance to another person. These are specialized user paths; they should not dominate general homepage copy or characterize all visitors.
 
-**Important:** The existing detailed PR roadmap provides implementation units, not a claim that all revised rights-content work is already specified there line by line. Each implementing PR MUST cite the relevant 0.x requirements and update the requirements traceability register. New scoped PRs may be added with HEARD-49+ if integration complexity warrants it; never silently drop requirements to keep a historical count.
+For disputed or extraordinary claims, keep the contributor's own account distinct from facts established through records or independent investigation. Support thoughtful, respectful review, corrections and relevant responses. Neither affirm a disputed claim as proven nor dismiss a person's concerns through stigma or diagnosis.
+
+### 0.6 Rights-content governance and publication quality
+
+Each guide is a versioned content object: topic, jurisdiction, primary-law sources, official guidance where relevant, author/editor, last reviewed and effective dates, language variants, status and related resources. Editorial lifecycle: draft → factual/legal review → published → stale/updated → archived. Changes in source law or regulation trigger re-review, not automatic unsupervised legal rewriting.
+
+Stories have a separate provenance chain: **personal account**, **submitted documents**, **independent verification where obtained**, **responses or disputed information**, **corrections**, and **reviewed public release**. The system must preserve the distinctions in search results, case pages, excerpts and share previews.
+
+### 0.7 Cross-cutting implementation and release requirements
+
+The 48 numbered HEARD work packages below form the baseline engineering roadmap. Each implementation PR must trace relevant public-copy, rights-information, privacy and assistance requirements from this section to code, tests and review evidence. Add packages if needed rather than compressing away necessary work.
+
+- HEARD-01–06: product charter, canonical content, six-path information architecture, legal-content schema, accessible shell, threat model and foundational CI.
+- HEARD-07–14: public rights browsing, separate question and private-support intake, clear consent decisions, usable identity/contact choices, secure evidence handling.
+- HEARD-15–28: optional media and personal-story tools, records review, safe publication and accurate labels for contested accounts.
+- HEARD-29–35: referrals and collaboration with contributor-approved scopes; no publication prerequisite.
+- HEARD-36–41: versioned integrations, rights-source provenance, archive references and scoped security evidence.
+- HEARD-42–48: privacy, quality, legal-content review, accessibility, broad-path end-to-end tests, deployment and independent handoff.
+
+**Pre-release acceptance:** Real interactive journeys must let someone (a) browse rights and source dates without logging in; (b) pose a private question without opening a public story; (c) find support information without an unrelated intake; (d) submit and preserve evidence with accurately explained protections; (e) contribute or read approved stories; and (f) volunteer without receiving unauthorized private information. No private data is exposed through public search, analytics, CDN, partner systems or operational logs. Every public copy claim must match the available, tested functionality.
+
 
 ---
 
 ## 1. Mission, product definition, and source of requirements
 
-**Mission.** Build a non-intimidating first stop where anyone can understand their rights and available options, ask questions without making accusations, seek private assistance, and optionally document possible wrongdoing; it must also make it possible for a person to document an injustice they say they experienced; preserve supporting records; choose whether, how, and to whom their account is disclosed; invite informed, voluntary assistance; and—when the contributor consents—make their account discoverable as part of a public archive. A person may use **education**, **private inquiry**, **assistance**, **evidence preservation**, or **public storytelling** independently. Testimony → witnessing → documentation/investigation → assistance/remedy or cultural work → archive is one optional public-story path, not the product's prescribed funnel.
+**Mission.** Give people a practical starting point for understanding their rights, examining decisions and conduct by public authorities, finding support, preserving important records, and seeking answers or accountability. Rights education, private inquiries, assistance, optional personal accounts and public records are connected services, each valuable in its own right.
 
 **Identity.** **HEARD** is the standalone public-facing product. *Justice For All* is the umbrella movement, which may be associated with the Justice Party but remains operationally independent. *HEARD* is the participation and assistance initiative; *HEARD Public Archive* is its public, curated body of released accounts and associated evidence. Do not silently make use of the Archive into party registration, political consent, donor enrollment, or mailing-list enrollment.
 
-**Decisions carried forward from the earlier discussions and October 10 HEARD corrections:**
-0. Everyone can explore their rights and seek help independently of wrongdoing, arrest status, identity or willingness to publish; no default legal-testimony framing.
-1. First-person video testimony is central. Audio and written testimony are supported so inability or unwillingness to record video does not exclude participation.
+**Settled product decisions:**
+1. Personal accounts are a key archive feature, available in video, audio and writing. Rights education, private questions and help are equally important service paths.
 2. Contributors can be named, pseudonymous, anonymous to the public, visibly/aurally obscured, or restricted to specifically approved helpers. Those privacy choices are not equivalent and must be explained separately.
 3. A person can seek help from lawyers, researchers, investigators, advocates, journalists, artists, filmmakers, people reporting related experiences, and other relevant volunteers.
 4. The storyteller—not a public volunteer directory—controls whether and how prospective helpers may contact them and see restricted evidence.
@@ -103,7 +112,7 @@ The 48 legacy implementation packages below remain as traceable engineering work
 
 ### 1.1 Success conditions
 
-A successful launch allows a person, including one who does not want an account or public identity, to complete a submission and securely retain their receipt/recovery credential; permits staff to review it without unintentionally publishing it; provides an auditable path to publication of an explicitly authorized derivative; permits the contributor to accept or decline narrowly scoped assistance; and exposes no restricted originals, identities, transcripts, or private contacts to public interfaces or unrelated organizations.
+A successful launch gives visitors useful rights guidance with verifiable sources and review dates, makes questions and support easy to find, and allows a private inquiry to proceed without requiring publication. When someone chooses to document an experience, the product securely records it, explains visibility and recipients, provides recoverable status access where supported, and supports deliberately authorized sharing or public release. Contributors control offers of assistance; restricted identities, evidence and messages remain inaccessible to public visitors and unauthorized partners.
 
 ### 1.2 Explicit non-goals
 
@@ -117,9 +126,9 @@ A successful launch allows a person, including one who does not want an account 
 
 ## 2. People, roles, and authorization
 
-**Public visitor:** browse and search authorized published accounts; flag concerns; offer assistance through a controlled form; cannot enumerate contributor identities or draft cases.
+**Public visitor:** browse rights guides and published accounts, compare source material, find resources, ask permitted general questions and explore how to help; cannot enumerate private inquiries, identities or drafts.
 
-**Contributor:** submit testimony and evidence; choose identity and publication modes independently; maintain private drafts; receive a private status/recovery credential; edit or withdraw publication requests; decide whether to engage with helpers. A contributor may have an ordinary account or may remain anonymous to the system except for unavoidable provider-side transport metadata.
+**Contributor or help seeker:** ask private questions, submit experiences and records, request assistance, choose identity/contact/publication modes independently, maintain drafts, receive status/recovery credentials where supported, and decide whether to collaborate with helpers. Transport and operational metadata may still be visible to providers and must be disclosed accurately.
 
 **Potential helper:** register and state capabilities/interests, offer help without receiving private evidence automatically. Categories include lawyer, researcher, investigator, advocate, journalist, artist, filmmaker, and corroborating witness. Category is self-described until reviewed; professional licensure or organizational affiliation must not be represented as verified without checking.
 
@@ -141,8 +150,9 @@ A successful launch allows a person, including one who does not want an account 
 
 ### 3.1 Public site
 
-- Accessible homepage with six equal invitations: Understand my rights; Ask about something that happened; Get help privately; Share an experience; Help someone else; Explore stories. Include privacy overview, safety/resources, editorial standards and no account requirement for browsing.
-- Public Archive browse/search, topic and geography filters only where safe, indexable individual case pages, captions and transcripts, source labels, publish date/revision history, restricted-data-free share cards.
+- Accessible homepage with the approved hero and six parallel paths from `content/site-copy.json`; rights guides, support resources, questions, experiences, volunteering and stories are readily discoverable. Provide clear privacy, safety and editorial links; require no account for public education and published stories.
+- Rights library browse/search organized by real-world questions and jurisdictions; versioned sources and review dates, plain-language guidance and accessible mobile navigation.
+- Public Archive browse/search, topic and geography filters only where safe, indexable individual story pages, captions and transcripts, source labels, publish date/revision history, restricted-data-free share cards.
 - Clearly distinguish *testimony*, *submitted supporting documentation*, *independent corroboration*, *contradictory evidence*, and *editorial review status*. Avoid credibility scores that conflate incomplete evidence with falsehood.
 - Case pages can offer “I can help,” “I have relevant information,” and “Report a problem,” all mediated without displaying private contact details.
 - Public reply/correction path for a person named in a story, subject to identity/safety checks and editorial policy; it does not provide access to the contributor's private information.
@@ -345,16 +355,26 @@ Version HTTP surface under `/api/v1/` with OpenAPI 3.1 committed to repository. 
 
 ## 8. Detailed workflows and acceptance examples
 
-### Flow A: anonymous private testimony
+### Flow A: private question and rights guidance
 
-1. Visitor reviews risks and chooses no account, no contact, **confidential only**.
-2. Client generates submission and displays high-entropy recovery secret; visitor saves it without server emailing it.
-3. Visitor enters narrative and optionally uploads a video. Upload starts in quarantined storage and requires successful safe processing before reviewer access.
-4. Submission receives a private tracking reference; public endpoints return no case details.
-5. Reviewer may ask a question through the protected inbox if that communication mode was selected. Without an account/recovery credential the visitor may not be reachable.
-6. Visitor re-enters using recovery proof, sees the restricted status, and may separately opt into publication or helper contact later.
+1. A visitor reads a sourced public rights guide and checks the stated jurisdiction and last review date without signing in.
+2. If the guide doesn't answer the question, the visitor chooses **Ask a question** and describes what they want to understand in their own words.
+3. HEARD explains how the inquiry will be handled, who can see the information, what response is available, and what contact information—if any—is needed.
+4. The inquiry remains private. It does not generate a public story, a political registration, an external referral or a case-publication request.
+5. Staff or authorized services provide information or an appropriate referral according to their stated capabilities. If the circumstances require individualized legal advice, the experience clearly directs the visitor to qualified counsel.
+6. The visitor can review any available private status using the selected account or recovery mode.
 
-**Acceptance:** cross-user API attempts fail; logs, email, search, Engine Room, storage listing and public API disclose neither content nor identity; loss of recovery code does not enable support impersonation; user experience explains the tradeoff.
+**Acceptance:** browsing and searching publicly released guides requires no account; each guide exposes sources and jurisdiction; an inquiry is not indexed publicly; confidential content is absent from public APIs, logs, search and analytics; the interface does not invent a legal conclusion or claim a response has been delivered when it has not.
+
+### Flow A2: private experience and evidence preservation
+
+1. A visitor chooses **Share an experience** and elects a private account with optional contact.
+2. The platform explains processing and recovery choices, then accepts written or supported media material using quarantined storage.
+3. The contributor receives a private reference and—when needed—a high-entropy recovery credential. Neither is a public link.
+4. Authorized reviewers may request clarification within the consented channel. Publication and helper access remain separate decisions.
+5. The contributor may later choose to request assistance, prepare a public derivative or leave the account private.
+
+**Acceptance:** no automatic public case page, open helper access or unwanted contact; unrelated users cannot read the record; private evidence never appears in public URLs, search, operational logs or partner systems.
 
 ### Flow B: public redacted video
 
@@ -386,7 +406,7 @@ Version HTTP surface under `/api/v1/` with OpenAPI 3.1 committed to repository. 
 
 ## 9. Measures of success and operating targets
 
-Metrics: number of safely completed submissions (separate public/private); median submission completion time; unrecoverable anonymous-token loss reports where voluntarily reported; proportion of consent previews understood; publication turnaround by stage; privacy-safety review defect rate; verified helper offers approved/declined; offer-to-approved-helper time; accessible transcripts coverage; valid abuse-report closure; zero verified unauthorized C2/C3 disclosures. Avoid vanity metrics that pressure contributors to make private stories public.
+Metrics: helpful rights-guide completion and source freshness by jurisdiction; ability to find the correct pathway; question routing accuracy and time to useful response; successful referral resource discovery; number of safely completed submissions (separate private inquiries, experiences and public stories); median completion time; unrecoverable anonymous-token loss reports where voluntarily reported; proportion of consent previews understood; publication turnaround by stage; privacy-safety review defect rate; verified helper offers approved/declined; offer-to-approved-helper time; accessible transcripts coverage; valid abuse-report closure; zero verified unauthorized C2/C3 disclosures. Avoid vanity metrics that pressure contributors to make private stories public.
 
 **Planning targets, not achieved SLAs:** 99.9% monthly uptime after production hardening; P95 public page server response under 800 ms with warm service, full accessible largest-content paint at or under 2.5 seconds on defined mobile test; 100% of unauthorized-object-access negative tests passing; 100% documented media/publication consent; public takedown first-party purge within 15 minutes after approved urgent action; backup RPO ≤24 h during pilot, improvement toward ≤1 h at general availability; tested RTO ≤8 h at general availability. Document test network, sample size, cost and observed measurements before claims.
 
@@ -447,7 +467,7 @@ HEARD/
 
 ## 11. Ordered 48-PR implementation roadmap
 
-**Interpretation:** Every `IP-XX` below is an ordered work package intended to become a reasonably bounded PR or a reviewed sequence of sub-PRs if implementation reveals a need to split it. Record real GitHub PR numbers in `ROADMAP_REGISTER.csv`. A package is **complete only when code, tests, relevant documentation, security review, and a merged PR are verified**. A deployed/operational gate is a separately recorded fact. Do not count a planning entry, open PR, passing unit test alone, or live-looking demo as production success.
+**Interpretation:** Every `HEARD-XX` below is an ordered work package intended to become a reasonably bounded PR or a reviewed sequence of sub-PRs if implementation reveals a need to split it. Record real GitHub PR numbers in `ROADMAP_REGISTER.csv`. A package is **complete only when code, tests, relevant documentation, security review, and a merged PR are verified**. A deployed/operational gate is a separately recorded fact. Do not count a planning entry, open PR, passing unit test alone, or live-looking demo as production success.
 
 ### Phase A — charter, architecture, and deployable foundation
 
@@ -793,11 +813,11 @@ The existing portfolio uses Render, Neon, and Backblaze B2; adopt these only whe
 
 ### 16.1 MVP (safe, contained pilot)
 
-Must have HEARD-01–HEARD-16, HEARD-18, HEARD-20–HEARD-24, HEARD-26–HEARD-28, HEARD-41 and the applicable controls/acceptance from HEARD-40, HEARD-42–HEARD-48. HEARD-17/HEARD-19 are also required if redacted media publication is enabled; otherwise disable public videos requiring anonymization. Helpers/messaging (HEARD-29–35), public FOIA linking, Liberty replication and sealed E2EE can be deferred behind disabled feature flags. MVP accepts private testimony and, only where fully reviewed/consented, straightforward public derivatives.
+Must have HEARD-01–HEARD-16, HEARD-18, HEARD-20–HEARD-24, HEARD-26–HEARD-28, HEARD-41 and the applicable controls/acceptance from HEARD-40, HEARD-42–HEARD-48. HEARD-17/HEARD-19 are also required if redacted media publication is enabled; otherwise disable public videos requiring anonymization. Helpers/messaging (HEARD-29–35), public FOIA linking, Liberty replication and sealed E2EE can be deferred behind disabled feature flags. MVP requires a useful and legally reviewed rights library, accessible public browse, a functional question/help pathway, and secure private experience intake. Publish stories or media only when the relevant consent, safety and editorial controls are independently verified; otherwise keep those features disabled and label them accurately.
 
 ### 16.2 Full product GA
 
-All 48 PR packages either implemented and verified or documented as a **deliberately disabled optional feature**, with its contract and public interface honest about unavailability. No claiming project completion if a user-promised core function—anonymous submission, privacy-controlled story publication, evidence review, mediated help, safe public Archive, or basic accessible access—is absent.
+All 48 PR packages either implemented and verified or documented as a **deliberately disabled optional feature**, with its contract and public interface honest about unavailability. Do not claim project completion when any advertised core capability—rights guidance with provenance, questions, support pathways, privacy-controlled accounts, evidence review, mediated help, the approved public Archive, or accessible use—is absent. Optional features that are not yet safe must remain clearly marked as unavailable.
 
 ### 16.3 Final go/no-go checklist
 
@@ -820,13 +840,13 @@ All 48 PR packages either implemented and verified or documented as a **delibera
 
 ## 17. Instructions to an independent development agent
 
-1. Read `README.md`, this full plan, `PRODUCT_REQUIREMENTS.md`, `REQUIREMENTS_TRACEABILITY.md`, `ARCHITECTURE.md`, E2EESA data-flow inventory, decisions, operations and cross-account handoff **before editing code**.
-2. Inspect the actual repository, open/merged PRs, CI, migrations and live service state; map each `IP-XX` to exact real PR/commit/test/deploy evidence. The roadmap is a specification, not a historical completion claim.
+1. Read `README.md`, `docs/CONTENT_STRATEGY.md`, `content/site-copy.json`, this full plan, `PRODUCT_REQUIREMENTS.md`, `REQUIREMENTS_TRACEABILITY.md`, `ARCHITECTURE.md`, E2EESA data-flow inventory, decisions, operations and cross-account handoff **before editing code**.
+2. Inspect the actual repository, open/merged PRs, CI, migrations and live service state; map each `HEARD-XX` to exact real PR/commit/test/deploy evidence. The roadmap is a specification, not a historical completion claim.
 3. Inspect the actual upstream `Secure-Intake-Case-Workflow-Engine` and E2EESA versions and pin compatible reviewed releases. Treat mock functionality and unstable security profiles as unavailable until tested.
 4. Work in dependency order. Open a small PR, run required automated/security checks, review integration and user-data impact, and merge automatically **only if** permitted, tests are genuinely passing, and no material legal/product/security gate is bypassed. Chain subsequent available work without waiting for discretionary implementation decisions.
 5. Record a blocker only when an actual missing secret/permission, unresolved consequential product policy choice, serious security finding, broken upstream dependency or other real constraint prevents safe continuation. Do not ask the user to choose routine libraries, code patterns, or test mechanisms that engineering can choose responsibly.
 6. Update roadmap register, handoff, linked ADRs, OpenAPI schemas, tests and Engine Room with every completed PR. Do not mislabel planned PRs as merged, code as deployed, or website liveness as operational acceptance.
-7. Do not access or introduce real contributor accounts, identities, or allegations in fixture data. Treat all unsanitized production testimony as sensitive. Minimize and redact any troubleshooting artifacts.
+7. Do not access or introduce real people's private questions, contributor accounts, identities, or allegations in fixture data. Treat all unsanitized production inquiries and evidence as sensitive. Minimize and redact any troubleshooting artifacts.
 8. At a completed milestone, produce links to the exact merged PR, passing tests, release artifact, deployed SHA, operational probes, residual risk and next queued milestone. Stop only at a genuine blocking gate or explicit instruction.
 
 ## 18. References and source-of-truth links
@@ -842,4 +862,4 @@ All 48 PR packages either implemented and verified or documented as a **delibera
 
 ---
 
-**Planning conclusion:** Build HEARD as an independent, public-first storytelling and assistance application over reusable secure intake infrastructure. Keep confidential originals, identifying information, managed processing, optional sealed encryption, public publication and irreversible distributed archival as **different, explicitly authorized security domains**. Use the 48 IDs as the canonical engineering roadmap, with real merged-PR and production evidence continuously recorded for handoff to any development account.
+**Planning conclusion:** Build HEARD as an accessible rights, inquiry, assistance and public-records platform. Offer a consistent experience across independent user journeys, with optional storytelling and evidence-preserving workflows supported by reusable secure intake infrastructure. Keep confidential originals, identifying information, managed processing, optional sealed encryption, public publication and irreversible distributed archival as **different, explicitly authorized security domains**. Use the 48 IDs as the canonical engineering roadmap, with real merged-PR and production evidence continuously recorded for handoff to any development account.
