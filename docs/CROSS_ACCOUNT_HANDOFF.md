@@ -1,46 +1,48 @@
 # HEARD — independent-account handoff
 
-**Repository:** https://github.com/neophilism/HEARD
-**Primary specification:** [DEVELOPMENT_PLAN.md](DEVELOPMENT_PLAN.md)
-**Status:** planning and foundational repository initialization; **not** a functioning intake product, deployed service, or security certification.
+**Repository:** https://github.com/neophilism/HEARD  
+**Product:** HEARD, an initiative of Justice For All  
+**Positioning:** *Your rights. Your voice. Your next step.*  
+**Primary specification:** [DEVELOPMENT_PLAN.md](DEVELOPMENT_PLAN.md)  
+**Public copy and editorial policy:** [CONTENT_STRATEGY.md](CONTENT_STRATEGY.md) and [../content/site-copy.json](../content/site-copy.json)  
 **Date:** 2026-10-10
 
-## Product mandate
+## Product and experience
 
-HEARD is a universal, low-pressure rights-awareness, confidential help, evidence preservation and optional public story platform. Visitors may learn, ask questions, request help, support another person, or share a story. No arrest, accusation, prior wrongdoing, victim identification, allegation of governmental misconduct, party affiliation, or formal legal commitment is necessary. No forced identity or account to read educational material.
+HEARD brings rights information, practical support, and firsthand experiences together in one place. Its primary services are a rights library, questions and help, experience/evidence preservation, a reviewed public archive, and ways to help others. Its voice is clear, welcoming, and specific: people should immediately see what HEARD offers and how to begin.
 
-## Critical non-negotiables
+The homepage has six independent pathways—know your rights, ask a question, find support, share an experience, help someone else, explore stories—and must use the canonical approved language from `content/site-copy.json`. The educational and help pathways are not mere lead-ins to public testimony.
 
-- Explain applicable laws accurately and by jurisdiction; editorial/legal review before publication.
-- No private intake, production claims, or uploads of personal case evidence until security, privacy, media, access, moderation and retention gates pass.
-- Distinct steps for information, private questions, cases, evidence, helper access, public release and distributed replication; consent does not silently flow between them.
-- Confidential TLS-to-server intake is not E2EE. Do not claim E2EESA conformance based on configuration-only checks or candidate profiles.
-- Original material stays private; publish only explicitly approved redacted derivatives.
-- Keep claims, alleged events, and independently verified findings clearly separated.
+## Engineering and safety requirements
 
-## Actual project state
+- Rights-specific materials require jurisdiction, citations, a review date, and editorial/legal quality controls.
+- Distinguish personal accounts, source documents, independent corroboration, and disputes or corrections.
+- Private inquiries, evidence, selected helper disclosures, public publication and distributed archival are separate permissions and processing domains.
+- Treat storage, contact information, authentication, recipient choices and confidentiality as consequential decisions; all security promises must match tested implementation.
+- Confidential server-managed intake is not automatically E2EE. Component/flow E2EESA claims require evidence, not only a settings file or fixture pass.
+- Restrict original material to authorized recipients, and use separately approved redacted derivatives for public release.
+- Do not activate sensitive intake or promise secure communication before security, privacy, legal, operational and incident-response reviews are satisfied.
 
-- GitHub repository initialized with README, full development plan and these handoff documents.
-- No verified running application, database, credential configuration, public intake, Render service, object storage, domain, deployed E2EE protocol, or live Engine Room ingestion is established by these repository commits.
-- Planning IDs HEARD-01 through HEARD-48 are **not** real PR numbers.
-- Foundation bootstrap files may be added separately. Confirm latest repository tree, GitHub Actions and default branch before beginning new work.
+## Verified repository state
 
-## Development sequence
+- GitHub contains the specification, editorial/content files, development handoff, basic checks and CI workflow.
+- A running application, database, production intake, deployment, domain, verified secure messaging and Engine Room monitoring have **not** been established by the foundational commits.
+- Roadmap work packages `HEARD-01` through `HEARD-48` are planning identifiers, **not** GitHub PR numbers or evidence of completed features.
+- No genuine case information, contact details or privileged material should be committed to source control, fixtures, issue comments or logs.
 
-1. Read the entire canonical development plan, especially Section 0 and the 48-package roadmap; reject narrow interpretation that everyone must submit testimony.
-2. Verify GitHub/CI and existing infrastructure APIs for Justice For All, Secure Intake & Case Workflow Engine, E2EESA, and FOIA Aggregator.
-3. Implement the real app scaffold and test harness with issue/PR mapping. Add rights-content schema and inclusive home paths early.
-4. Chain narrow PRs with real tests, reviews, migrations, negative authorization/privacy paths, and documentation.
-5. Record PR links, merge state, CI evidence, actual runtime release and operational state separately. Never equate repo initialization with production readiness.
+## Immediate development sequence
 
-## Tooling and environment
+1. Read the README, the full development plan, `docs/CONTENT_STRATEGY.md`, and `content/site-copy.json`. Verify the current branch, CI and commit history.
+2. Confirm actual upstream interfaces and compatible versions of Secure Intake & Case Workflow Engine, E2EESA, FOIA Aggregator, Justice For All and Engine Room.
+3. Build the accessible application shell and route structure, using the canonical copy instead of hardcoded alternative wording.
+4. Add rights guide schema, source-review records and public browsing first; keep unreviewed rights examples fictional or clearly marked as samples.
+5. Implement protected inquiry, private records, assistance and publication as separately tested services in dependency order.
+6. Keep real status evidence for each PR: actual link and merge state, build/test results, migration/rollback, release SHA, deployment readiness and known issues.
 
-The plan recommends TypeScript/Next.js/PostgreSQL, independent workers, object storage and secure deployment after threat modeling. These are proposed, not configured. No secrets or personal data should be committed or pasted into issues. Render/Neon/B2 identifiers and secrets remain **not recorded** in this repo. Ask for credentials only when actually blocked.
+## Infrastructure status
 
-## Next safe action
+TypeScript/Next.js and PostgreSQL with separate workers and private object storage are planning choices, not a statement that production services have been configured. Render, Neon and B2 resources and keys must be obtained and verified at the appropriate milestone. Do not commit credentials.
 
-Implement the HEARD-01 working application scaffold and test pipeline, with six navigation routes, placeholder educational content explicitly marked as not legal advice, basic accessibility tests, and no intake persistence. Then proceed by reviewed PRs in dependency order.
+## Completion and handoff update discipline
 
-## Handoff maintenance rules
-
-On each PR update this document with: latest merged SHA; release artifact and version; roadmap IDs → actual PRs; CI checks; migrations; observed deployment/readiness evidence; known blockers; exact next task; unresolved real product decisions and links to authoritative ADRs. Never rely on any ChatGPT account's memory.
+Update this file on every meaningful implementation milestone with latest merged SHA, exact roadmap IDs and actual PRs, current test evidence, dependency versions, observed deployment state, migrations, backup/restore evidence, unresolved risks, blockers and next actionable task. Keep completed code, security review and live production readiness as distinct status fields. An agent with no earlier conversation history should be able to continue from this repository alone.
