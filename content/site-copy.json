@@ -1,0 +1,241 @@
+{
+  "brand": {
+    "name": "HEARD",
+    "tagline": "Your rights. Your voice. Your next step.",
+    "shortDescription": "HEARD brings rights information, practical support, and personal stories together in one place.",
+    "mission": "HEARD helps people understand their rights, make sense of government actions that affect their lives, and find paths to answers and accountability.",
+    "attribution": "An initiative of Justice For All."
+  },
+  "navigation": {
+    "primary": [
+      {
+        "label": "Know your rights",
+        "href": "/rights"
+      },
+      {
+        "label": "Find support",
+        "href": "/support"
+      },
+      {
+        "label": "Explore stories",
+        "href": "/stories"
+      },
+      {
+        "label": "Share an experience",
+        "href": "/share"
+      },
+      {
+        "label": "Get involved",
+        "href": "/get-involved"
+      }
+    ],
+    "utility": [
+      {
+        "label": "How HEARD works",
+        "href": "/about"
+      },
+      {
+        "label": "Privacy and safety",
+        "href": "/privacy"
+      },
+      {
+        "label": "Contact",
+        "href": "/contact"
+      }
+    ]
+  },
+  "home": {
+    "eyebrow": "An initiative of Justice For All",
+    "headline": "Your rights. Your voice. Your next step.",
+    "introduction": "Find clear information about your rights, explore real experiences, and discover where to turn for support. Whether you have a question, something to share, or a way to help, HEARD is a place to begin.",
+    "primaryAction": {
+      "label": "Know your rights",
+      "href": "/rights"
+    },
+    "secondaryAction": {
+      "label": "Find support",
+      "href": "/support"
+    },
+    "sectionTitle": "What brings you here?",
+    "cards": [
+      {
+        "id": "rights",
+        "title": "Know your rights",
+        "body": "Explore plain-language guides to the rules that govern encounters with public institutions.",
+        "action": "Explore rights guides",
+        "href": "/rights"
+      },
+      {
+        "id": "questions",
+        "title": "Ask a question",
+        "body": "Trying to understand a decision or experience? Start with your question and explore the options.",
+        "action": "Ask a question",
+        "href": "/questions"
+      },
+      {
+        "id": "support",
+        "title": "Find support",
+        "body": "Learn what kinds of help are available and how to connect with people or organizations that may be able to assist.",
+        "action": "Explore support",
+        "href": "/support"
+      },
+      {
+        "id": "share",
+        "title": "Share an experience",
+        "body": "Tell your story in your own words. Choose what you share and how others may see it.",
+        "action": "Share your experience",
+        "href": "/share"
+      },
+      {
+        "id": "help",
+        "title": "Help someone else",
+        "body": "Use your skills, experience, or time to help others find answers and move forward.",
+        "action": "Ways to help",
+        "href": "/get-involved"
+      },
+      {
+        "id": "stories",
+        "title": "Explore stories",
+        "body": "Read firsthand accounts, supporting records, and updates that shed light on how public power affects people.",
+        "action": "Explore stories",
+        "href": "/stories"
+      }
+    ],
+    "whyTitle": "Understanding is a first step toward accountability.",
+    "whyBody": "Questions deserve careful answers. Experiences deserve to be taken seriously. And when government institutions make mistakes or misuse their power, people need practical ways to seek review and redress.",
+    "stepsTitle": "Start where it makes sense for you.",
+    "steps": [
+      {
+        "title": "Explore",
+        "body": "Look up a right, read a story, or find answers to a question."
+      },
+      {
+        "title": "Choose",
+        "body": "Get information, document a concern, seek support, or offer your skills."
+      },
+      {
+        "title": "Move forward",
+        "body": "Decide what to do next, with clear information about each option."
+      }
+    ],
+    "privacyTitle": "Your information deserves care.",
+    "privacyBody": "HEARD is designed to explain who can see what you share, what choices you have, and where privacy protections have limits. Sharing something publicly is a separate decision.",
+    "privacyAction": "Understand your privacy choices",
+    "closingTitle": "A question is enough to begin.",
+    "closingBody": "You don't need the right legal term or a finished account. Find the part of HEARD that can help you take the next step.",
+    "closingAction": "Explore HEARD"
+  },
+  "pages": {
+    "rights": {
+      "title": "Know your rights.",
+      "intro": "Find plain-language explanations of your rights in everyday situations, with sources and guidance on how the rules can differ by location.",
+      "searchPlaceholder": "Search a topic or question",
+      "empty": "We couldn't find a guide for that search. Try a different term or browse the topics below.",
+      "sourceLabel": "Sources and references",
+      "jurisdictionLabel": "Where this guidance applies",
+      "updatedLabel": "Last reviewed",
+      "legalNote": "This information is educational, not legal advice. Laws vary by jurisdiction and circumstances."
+    },
+    "questions": {
+      "title": "Start with a question.",
+      "intro": "If a government action, instruction, or decision has left you uncertain, you can begin by explaining what you'd like to understand.",
+      "fieldLabel": "What would you like to understand?",
+      "fieldHelp": "Describe the situation in your own words. Include only the details needed for your question.",
+      "categoryLabel": "What is your question about?",
+      "unspecifiedOption": "I'm not sure",
+      "locationLabel": "Where did this happen?",
+      "locationHelp": "Location may affect which laws and procedures apply.",
+      "nextAction": "Review my question"
+    },
+    "support": {
+      "title": "Find a way forward.",
+      "intro": "Explore options for legal help, research, documentation, advocacy, and other practical support. The right next step depends on your situation.",
+      "browseAction": "Browse support resources",
+      "requestAction": "Ask for assistance",
+      "availabilityNote": "Availability and eligibility vary. HEARD cannot guarantee a referral or a particular outcome."
+    },
+    "share": {
+      "title": "Share your experience.",
+      "intro": "Your account can help others understand what happened and why it matters. HEARD is designed to give you clear choices about what to keep private and what, if anything, to publish.",
+      "startAction": "Begin an account",
+      "privacyAction": "See how sharing works",
+      "draftLabel": "Save a draft",
+      "uploadLabel": "Add supporting material",
+      "previewLabel": "Review what others could see"
+    },
+    "stories": {
+      "title": "Stories worth hearing.",
+      "intro": "Explore firsthand accounts, records, and updates. Each story makes clear what has been reported, what documents are available, and what has been independently verified.",
+      "filterLabel": "Explore by topic",
+      "storyLabel": "Personal account",
+      "documentsLabel": "Supporting records",
+      "verificationLabel": "Verification and context",
+      "updatesLabel": "Updates and corrections",
+      "reportAction": "Report a concern"
+    },
+    "help": {
+      "title": "Help make a difference.",
+      "intro": "A careful review, a useful document, a professional skill, or a listening ear can make the next step easier for someone else.",
+      "optionsTitle": "Ways to contribute",
+      "volunteerAction": "Explore volunteer roles",
+      "informationAction": "Share relevant information",
+      "referralAction": "Support someone you know"
+    },
+    "about": {
+      "title": "What is HEARD?",
+      "intro": "HEARD is a public-interest project connecting rights education, personal experiences, and practical paths to assistance and accountability.",
+      "body": "People have questions about decisions made by officials and institutions. Some need reliable information. Others need support, a place to preserve a record, or a way to make an experience visible. HEARD is being built to bring those needs together with clarity, care, and respect for each person's choices.",
+      "accountabilityTitle": "Clarity. Evidence. Accountability.",
+      "accountabilityBody": "HEARD treats personal accounts with respect while distinguishing reported experiences from documented facts and independently verified findings. That distinction helps readers understand the record and helps contributors pursue meaningful review."
+    },
+    "privacy": {
+      "title": "Know your choices before you share.",
+      "intro": "Privacy matters most when the information is personal. HEARD explains what is collected, who may see it, how it is handled, and what the available protections cannot guarantee.",
+      "shareLabel": "Who can see my information?",
+      "publicationLabel": "What happens if I publish?",
+      "limitsLabel": "What are the limits of privacy?",
+      "contactLabel": "How can I change my choices?"
+    }
+  },
+  "submission": {
+    "heading": "Review before you send.",
+    "recipientHeading": "Who can see this?",
+    "recipientIntro": "Check the information and recipients below before you submit.",
+    "privateOption": "Keep this private",
+    "helperOption": "Share with people I approve",
+    "publicOption": "Request public publication",
+    "noPublicationNote": "Submitting information privately does not publish it.",
+    "publicationWarning": "If you decide to publish, copies may be saved or shared outside HEARD. Removing a page later may not remove every copy.",
+    "identityNote": "A public alias can protect your displayed name, but may not prevent someone from recognizing details in your account.",
+    "sensitiveDataNote": "Please avoid including passwords, account credentials, or unrelated people's private information.",
+    "confirmLabel": "Send my submission",
+    "saveDraftLabel": "Save for later",
+    "statusReceivedTitle": "Your submission was received.",
+    "statusReceivedBody": "Save your reference information. You can use it to check for updates when that feature is available.",
+    "networkError": "We couldn't complete your request. Please check your connection and try again.",
+    "validationError": "Please review the highlighted fields.",
+    "safetyNote": "HEARD is not an emergency service. If someone is in immediate danger, seek appropriate local emergency help when it is safe to do so."
+  },
+  "footer": {
+    "disclaimer": "HEARD provides general information and a place to explore options. It is not a substitute for advice from a qualified attorney.",
+    "sources": "We identify sources, review dates, and important limits in our rights guides.",
+    "links": [
+      {
+        "label": "About HEARD",
+        "href": "/about"
+      },
+      {
+        "label": "Privacy and safety",
+        "href": "/privacy"
+      },
+      {
+        "label": "Editorial standards",
+        "href": "/editorial-standards"
+      },
+      {
+        "label": "Contact",
+        "href": "/contact"
+      }
+    ]
+  }
+}
