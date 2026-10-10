@@ -1,37 +1,53 @@
 # HEARD
 
-**Your rights matter. Start wherever you are.**
+**Your rights. Your voice. Your next step.**
 
-HEARD is a Justice For All platform for learning about rights, asking questions about potentially wrongful government conduct, obtaining assistance privately, preserving evidence, and—only when chosen—sharing experiences publicly. Visitors do **not** need to consider themselves victims, have been accused of wrongdoing, identify a legal violation, or commit to publishing a testimony.
+HEARD is a public-interest project being built to help people understand their rights, make sense of government actions that affect their lives, and find paths to answers and accountability. It brings clear information, practical support, and firsthand stories together in one place.
 
-## Paths into HEARD
+Questions about your rights deserve careful answers. Experiences deserve to be taken seriously. And when public institutions make mistakes or misuse their power, people need ways to document what happened and seek review or redress.
 
-- **Understand my rights:** explore jurisdiction-sensitive educational information with sources, update dates, and uncertainty.
-- **Ask about something that happened:** describe a situation without making a formal accusation or creating a public record.
-- **Get help privately:** seek confidential or anonymity-preserving assistance with clear security limitations and consent.
-- **Share an experience:** control what is documented and whether anything is published.
-- **Help someone else:** learn, refer, contribute corroboration, or offer vetted professional/volunteer assistance.
-- **Explore stories and public records:** read consented, reviewed accounts and supporting material without logging in.
+## What HEARD will offer
 
-**Publication, identity disclosure, and referral to another organization are separate affirmative choices, never default consequences of seeking help.**
+- **Know your rights.** Plain-language guides explaining legal protections, government powers, and the procedures that matter, with sources and jurisdiction-specific context.
+- **Ask a question.** A simple place to explore concerns about something that happened or a government decision you want to understand.
+- **Find support.** Resources and carefully managed connections to people who may be able to help, including legal professionals, researchers, and advocates.
+- **Share an experience.** A way to preserve an account, organize evidence, and choose whether to share a story more widely.
+- **Help someone else.** Opportunities to contribute relevant information, time, or professional expertise.
+- **Explore stories.** Firsthand accounts presented with available documents, updates, and clear distinctions between reported experiences and independently verified findings.
 
-## Development
+**The platform's central promise is clarity and choice:** useful information, respectful treatment, and control over what is shared and with whom. Those promises must be supported by tested product behavior, not merely words.
 
-- [Canonical development plan](docs/DEVELOPMENT_PLAN.md) — requirements, architecture, policies, roadmap, acceptance tests, and cross-account handoff.
-- [Architecture decisions](docs/DECISIONS.md) — approved decisions and unresolved choices.
-- [Implementation status and handoff](docs/CROSS_ACCOUNT_HANDOFF.md) — verifiable repository progress and next safe steps.
+## Content and editorial direction
 
-Initial project status: **foundation in progress; not deployed or ready to accept sensitive reports.** Do not send private case content to GitHub issues, pull requests, logs, or demo forms.
+Public copy is maintained in [content/site-copy.json](content/site-copy.json), with its editorial standards in [docs/CONTENT_STRATEGY.md](docs/CONTENT_STRATEGY.md). The site should feel welcoming and serious, not like a law office, court filing, political solicitation, or sensationalized exposé.
 
-## Existing infrastructure and boundaries
+Rights guides must identify their sources, relevant jurisdiction, and review date. Published accounts must distinguish a contributor's experience from documentary evidence, corrections, and independently confirmed findings. Communications about privacy must describe actual protections and meaningful limitations.
 
-- [Justice For All](https://github.com/neophilism/Justic-For-All) — planned parent platform integration; check repository and interface availability before coupling.
-- [Secure Intake & Case Workflow Engine](https://github.com/neophilism/Secure-Intake-Case-Workflow-Engine) — reusable case/consent/workflow features where independently verified.
-- [End-To-End-Everywhere Security Architecture Standard](https://github.com/neophilism/End-To-End-Everywhere-Security-Architecture-Standard) — applicable per-component/flow controls; no unsupported E2EE or certification claims.
-- [FOIA Aggregator](https://github.com/neophilism/FOIA_Aggregator) — optional, provenance-preserving public-record linkage.
+## Development documentation
 
-This repository contains **no production intake service** yet. Public demonstration content must be fictional, and protected material must never be uploaded until the reviewed privacy, security, and operational release gates are met.
+- [Complete development plan](docs/DEVELOPMENT_PLAN.md) — architecture, security, data model, user workflows, phased work packages, acceptance and release gates.
+- [Product decisions](docs/DECISIONS.md) — settled product boundaries and unresolved material decisions.
+- [Independent-account handoff](docs/CROSS_ACCOUNT_HANDOFF.md) — implementation status, dependency tracking, and next steps.
+- [Content strategy](docs/CONTENT_STRATEGY.md) — brand voice, interface wording, sensitive copy rules, and review process.
+- [Canonical interface copy](content/site-copy.json) — strings and screen-level copy for the eventual application.
 
-## Development policy
+## Related projects
 
-Security-sensitive changes require tests, migration/rollback notes where relevant, and documented evidence. A PR milestone label is not a claim of implementation. Verified code/CI status and live deployment status are separate. Follow the release gates in the development plan.
+- [Justice For All](https://github.com/neophilism/Justic-For-All) — the broader initiative; any technical integration must be checked before implementation.
+- [Secure Intake & Case Workflow Engine](https://github.com/neophilism/Secure-Intake-Case-Workflow-Engine) — reusable private intake and case workflow capabilities, subject to compatibility tests.
+- [End-To-End-Everywhere Security Architecture Standard](https://github.com/neophilism/End-To-End-Everywhere-Security-Architecture-Standard) — applicable security requirements, evaluated per component and data flow.
+- [FOIA Aggregator](https://github.com/neophilism/FOIA_Aggregator) — potential source of verifiable public-record references.
+
+## Current project status
+
+HEARD is in early development. **There is no live HEARD service accepting private questions, testimony, or evidence.** Do not submit sensitive information through GitHub issues, pull requests, demonstration forms, or repository discussions.
+
+The repository currently contains the product specification, content system, foundational tests, and initial CI setup. A functioning application, secure intake, rights-review operation, and production deployment remain to be implemented and verified.
+
+To run the existing foundation checks with Node.js 22 or later:
+
+```sh
+npm run check
+```
+
+Development progress and live readiness are tracked separately. A completed roadmap entry is not evidence that the corresponding service is deployed or safe for sensitive use.
