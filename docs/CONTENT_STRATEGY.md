@@ -152,7 +152,7 @@ Explain role vetting, whether someone will see sensitive information, and the co
 
 **Know your choices before you share.**
 
-Privacy matters most when the information is personal. HEARD explains what is collected, who may see it, how it is handled, and what the available protections cannot guarantee.
+Privacy matters most when the information is personal. HEARD explains what is collected, who may see it, how it is handled, and the limits of the protections available.
 
 Detailed limitations are important here: pseudonyms may not prevent re-identification, digital copies can be retained by third parties, confidential server processing is not identical to end-to-end encryption, and lawful process or device/network compromise may limit secrecy. Be truthful about the protection actually implemented.
 
