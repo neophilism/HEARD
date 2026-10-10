@@ -1,0 +1,14 @@
+{
+  "name": "heard",
+  "private": true,
+  "version": "0.0.1",
+  "description": "HEARD rights-awareness and assistance platform foundational workspace",
+  "scripts": {
+    "check:foundation": "node scripts/check-foundation.mjs",
+    "test": "node --test tests/foundation.test.mjs",
+    "check": "npm run check:foundation && npm test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
