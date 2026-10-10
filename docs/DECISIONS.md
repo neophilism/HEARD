@@ -1,32 +1,48 @@
-# HEARD — decisions and architectural boundaries
+# HEARD — product decisions and architecture record
 
-## Approved product decisions (2026-10-10)
-- Name: **HEARD**. Parent initiative: Justice For All.
-- Broad scope: all people who want to understand rights, question potentially improper state conduct, seek help or assist others. Do not focus the entire platform on people with criminal histories or on one type of claimed abuse.
-- Tone: non-intimidating; "TESTIFY" is not the principal invitation; no coerced self-labeling.
-- Six equal entry points: understand rights; ask privately; get help; share an experience; help someone else; explore stories.
-- Optional private/anonymous help and optional public storytelling; privacy must be candid about technical limitations.
-- Reuse existing generalized workflow/security standards where compatible; independent HEARD product and deployment.
+## Settled product direction (October 10, 2026)
 
-## Proposed technical directions requiring verification (not implicit approvals)
-- Next.js/TypeScript and PostgreSQL with separate service/worker permissions.
-- Vetted external legal review and source provenance for guidance.
-- Render + Neon + private object storage as potential infrastructure, after cost/authorization check.
-- Managed confidential processing separated from independently reviewed sealed/E2EE processing.
-- Media processing and derivative publication only after independent consent + review.
-- Independent component/flow E2EESA applicability assessment.
+**Name:** HEARD  
+**Parent initiative:** Justice For All  
+**Positioning:** Your rights. Your voice. Your next step.
 
-## Explicit exclusions
-- No global claim of E2EE for server-readable workflows.
-- No implied attorney-client relationship, legal representation, emergency dispatch, or guarantee of a favorable outcome.
-- No auto-publication, political enrollment, unwanted helper contact or unconditional replication.
-- No blanket acceptance of testimony as established truth or blanket dismissal of people raising unusual claims.
+**Purpose:** Help people understand their rights, make sense of government actions that affect their lives, and find paths to answers and accountability. Connect clear guidance, practical support and personal stories in one welcoming public-interest platform.
 
-## Product questions to resolve before relevant release gate
-- Jurisdiction coverage and authorized legal-review capacity.
-- Actual confidential messaging modes and encryption profile maturity.
-- Verified organizations/helpers and referral policy.
-- Retention schedules, lawful-process handling and cross-border data policy.
-- Production budget, hosting accounts, domain, incident staffing and acceptable SLAs.
+**Visitor journeys:** Rights education, asking a question, finding support, preserving or sharing an experience, helping another person, and exploring approved stories. Each has an independent path; the homepage is a useful introduction, not a legal filing or mandatory intake.
 
-Implementers may make conventional engineering choices; escalate only material privacy, legal, funding, key-authority or product-policy decisions.
+**Editorial identity:** Human, direct, calm, serious about evidence, careful about contested claims, and free of sensational or defensive language. The homepage and introductory descriptions should communicate the value of the project immediately. Public copy is canonical in `content/site-copy.json`; the design and review contract is in `docs/CONTENT_STRATEGY.md`.
+
+**Privacy and agency:** Meaningful, separate authorization governs confidential submissions, specific helper access, public stories and any independent archival replication. Staff may not imply that an account is legally or medically established merely because it was submitted.
+
+**Architecture:** HEARD remains an independently deployable public-facing application. Reuse stable generic workflow capabilities and apply E2EESA protections to relevant components and flows after compatibility and security review.
+
+## Implementation choices proposed for engineering verification
+
+- Next.js/TypeScript and PostgreSQL with separate service and worker permissions.
+- Versioned, human-reviewed rights guides with primary sources and jurisdiction context.
+- Render, Neon and private object storage where authorized and cost-appropriate.
+- Separate managed-confidential and genuinely sealed/E2EE processing models; no undemonstrated security claims.
+- Publication through specifically consented, reviewed derivatives rather than direct raw-evidence URLs.
+- Case management adapter pinned to the tested Secure Intake engine version.
+
+These are directions, not assertions that every provider, release, schema or key is already configured.
+
+## Safety, legal and content boundaries
+
+- Provide general education, not implied attorney-client representation or guaranteed legal outcomes.
+- Handle urgent safety matters through accurate information and appropriate referral; do not imply emergency response staffing.
+- Distinguish personal accounts, documents, independent findings and corrections in all public views.
+- No automatic publication, referral, political enrollment, unrestricted case access or transmission of private originals to distributed public archives.
+- Do not claim anonymous or end-to-end encrypted communications without threat-model and implementation evidence.
+- Respect privacy of contributors, third parties and people named in disputed accounts; maintain independent complaint and correction processes.
+
+## Release-dependent product decisions still open
+
+- Initial jurisdiction coverage and legally qualified reviewer capacity.
+- Response/service availability for private questions and support requests.
+- Partner and volunteer credential verification and referral rules.
+- Approved communication modes, cryptographic profiles and retained metadata.
+- Retention schedules, lawful-process response, safeguarding and cross-border data handling.
+- Production domain, hosting authorization, cost ceiling, support coverage and operational targets.
+
+Engineers may resolve routine implementation details through documented ADRs. Escalate privacy-impacting policy changes, legal commitments, infrastructure spending and other material choices.
