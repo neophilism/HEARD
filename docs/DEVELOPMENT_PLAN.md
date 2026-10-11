@@ -1,3 +1,5 @@
+> **Canonical PR plan:** [`registry/roadmap.json`](../registry/roadmap.json). The full original plan follows for scope details; update all new PR work/counts in the canonical file.
+
 # HEARD
 ## Comprehensive Development Plan and Independent-Account Handoff
 
