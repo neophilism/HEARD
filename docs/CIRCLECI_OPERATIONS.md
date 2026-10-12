@@ -14,3 +14,5 @@ Require **both** passing GitHub commit status contexts `ci/circleci: full-verifi
 ## Automatic trigger acceptance test
 
 This documentation PR exists to demonstrate real GitHub-initiated CI execution after pushing changes to an open non-draft PR. Inspect the CircleCI run and the matching GitHub commit statuses before declaring automatic triggering operational.
+
+This follow-up commit was pushed **after** this PR was opened specifically to test the configured GitHub event trigger; it is not a substitute for inspecting the resulting real CI status.
