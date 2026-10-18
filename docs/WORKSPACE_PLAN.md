@@ -1,11 +1,7 @@
 # HEARD engineering workspace baseline
 
-HEARD-03 is an incremental developer tooling unit. The foundation currently runs dependency-free Node checks and is not yet a Next.js app. The root TypeScript configuration encodes intended strict type safety for subsequent packages. Node 22 remains the minimum documented runtime. A Next.js TypeScript application, pinned lockfile, containerized Postgres and test storage, CI secret scan and reproducible build remain pending. Do not claim an application can be deployed from this document.
+HEARD-03 now has a dependency-free npm workspace with a committed lockfile and a private `@heard/contracts` package. The package exports runtime validation and a matching TypeScript declaration for a bounded public content record. The public contract intentionally rejects extra fields, including private intake or contact fields. Root `npm run check` includes workspace/lock validation and negative tests under the existing foundation CI job.
 
-## Reproducibility requirements
+The foundation is not yet a Next.js application. No TypeScript compiler, application package, database, or deployment artifact is installed in this branch; a declaration file and strict base config do not prove type-check execution. Add a pinned Next.js app and compiler only with a reproducible resolved lockfile, then run build and type checks in CI. Add CI secret scanning and containerized integration services when those dependencies and workflows can be verified. Do not treat passing foundation checks as production acceptance.
 
-- Keep all new package dependencies pinned and lockfiles committed.
-- Ensure each package extends tsconfig.base.json and has strict checks in CI.
-- Never expose sensitive personal testimony to development fixtures or logs.
-- Maintain a failing-check fixture in dedicated CI test jobs to validate protection gates without deliberately breaking main.
-- Record source SHA, dependencies, runtimes and build artifacts for every release.
+Package and source tests remain covered by `npm run check` in the existing workflow.
