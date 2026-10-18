@@ -8,8 +8,12 @@ test('separate consent defaults to deny and never implies replication',()=>{
  assert.equal(allowedByConsent([grant],request),true);
  assert.equal(allowedByConsent([grant],{...request,purpose:'archive_replication'}),false);
 });
-test('revocation wins after a grant',()=>{
- assert.equal(allowedByConsent([grant,{...grant,decision:'revoke',timestamp:11}],request),false);
+test('revocation wins after a grant and at ambiguous same timestamps',()=>{
+ const revoke={...grant,decision:'revoke',timestamp:11};
+ assert.equal(allowedByConsent([grant,revoke],request),false);
+ const tied={...revoke,timestamp:10};
+ assert.equal(allowedByConsent([grant,tied],request),false);
+ assert.equal(allowedByConsent([tied,grant],request),false);
 });
 test('grant is case-, subject-, purpose- and version-scoped',()=>{
  assert.equal(allowedByConsent([grant],{...request,resourceId:'case2'}),false);
