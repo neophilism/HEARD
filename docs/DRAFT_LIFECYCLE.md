@@ -1,0 +1,3 @@
+# HEARD-11 draft lifecycle skeleton
+
+A pure state-transition policy prevents unconsented submission or unauthenticated ownership claims from being interpreted as a valid submit. This is not actual encrypted draft storage, recoverable private upload, verified receipt issuance or deployed service. A real receipt must be created only after atomic durable transaction commit and must not contain testimony or identifiers unsafe for third parties. Recovery credentials require time-bounded, one-time hashed tokens with anti-enumeration, rate controls and revocation. Real private draft storage, retry idempotency, interrupted upload, clock/case isolation and backup recovery tests remain mandatory.
