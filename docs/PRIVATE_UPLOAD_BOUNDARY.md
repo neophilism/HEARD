@@ -1,0 +1,3 @@
+# HEARD-12 private resumable upload guard
+
+Only a pure validation function is implemented. No storage credentials, upload URLs, chunk persistence, resume receipts, MIME scanner, encrypted storage, content safety or antivirus service is configured. Unverified owners, oversized chunks, overflows and unquarantined destinations are rejected by the guard. A trusted server must derive verifiedOwner from authenticated policy enforcement, and must not trust a browser-controlled boolean. Hash metadata must be verified against actual uploaded bytes, with per-object ownership, idempotent sequence, integrity at rest, expiry and no public object URL. Until those services exist, do not accept real private evidence.
