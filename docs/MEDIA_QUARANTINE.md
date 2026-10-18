@@ -1,0 +1,3 @@
+# HEARD-13 malware and parser safety boundary
+
+This pure transition policy requires verified scanning, MIME/type and size checking, authenticated owner authorization and explicit publication review before any derivative could be released. It is NOT a working scanner, sanitizer, download handler, safe parser, archive extraction service or production authorization. Private originals should stay inaccessible to public CDNs and logs. Follow-up engineering must isolate scanning workers, defend against decompression bombs and polyglots, cap CPU/memory, pin parser images, maintain signed scan verdicts with malware signature versions, and independently validate derivatives before release. Failed, missing or stale scans must fail closed.
