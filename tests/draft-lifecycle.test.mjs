@@ -10,7 +10,9 @@ test('draft submission requires owner, consent and storage',()=>{
 test('a submitted draft cannot silently revert to draft',()=>{
  assert.equal(decideDraftTransition({from:'submitted',to:'draft',actorIsOwner:true}).allowed,false);
 });
-test('receipt contains reference only, not content',()=>{
- assert.deepEqual(publicSubmissionReceipt({id:'case-identifier-01',status:'submitted'}),{reference:'case-identifier-01',status:'submitted'});
- assert.throws(()=>publicSubmissionReceipt({id:'x',status:'draft'}));
+test('receipt requires explicit committed durable confirmation and contains no content',()=>{
+ assert.throws(()=>publicSubmissionReceipt({id:'case-identifier-01',status:'submitted'}));
+ assert.throws(()=>publicSubmissionReceipt({id:'case-identifier-01',status:'submitted',verifiedCommit:false}));
+ assert.deepEqual(publicSubmissionReceipt({id:'case-identifier-01',status:'submitted',verifiedCommit:true}),{reference:'case-identifier-01',status:'submitted'});
+ assert.throws(()=>publicSubmissionReceipt({id:'x',status:'draft',verifiedCommit:true}));
 });

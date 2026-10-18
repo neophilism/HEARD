@@ -5,7 +5,9 @@ export function decideDraftTransition({from,to,actorIsOwner,storageReady,consent
  if(from==='draft'&&to==='withdrawn')return {allowed:true};
  return {allowed:false};
 }
-export function publicSubmissionReceipt({id,status}){
- if(typeof id!=='string'||!/^[-_a-zA-Z0-9]{12,128}$/.test(id)||status!=='submitted')throw new Error('No verified submission receipt');
+/** Caller must derive verifiedCommit from a durable, authenticated store acknowledgment. */
+export function publicSubmissionReceipt({id,status,verifiedCommit}){
+ if(typeof id!=='string'||!/^[-_a-zA-Z0-9]{12,128}$/.test(id)||status!=='submitted'||verifiedCommit!==true)
+   throw new Error('No verified submission receipt');
  return Object.freeze({reference:id,status:'submitted'});
 }
