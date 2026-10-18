@@ -1,0 +1,3 @@
+# HEARD-10 unmounted intake flow baseline
+
+This is a local-only ordered wizard contract with a fail-closed submission capability gate. No route, HTML form, media upload, authenticated server action or public submission endpoint exists. Do not invite visitors to submit private testimony until independently verified Secure Intake, storage, cryptographic and consent controls are ready. Before each field, explain processing recipients and privacy limits. The actual UI must support keyboard/screen readers, clear back/navigation, optional media, resumable drafts, secure submission receipts, non-coercive identity options and no implied legal representation. The flow must preserve separate rights/question/support alternatives rather than funnel all visitors into testimony.
