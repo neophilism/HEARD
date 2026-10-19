@@ -3,12 +3,21 @@
   "private": true,
   "version": "0.0.1",
   "description": "HEARD helps people understand their rights and find paths to support and accountability.",
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "check:foundation": "node scripts/check-foundation.mjs",
-    "test": "node --test tests/foundation.test.mjs",
-    "check": "npm run check:foundation && npm test"
+    "check:workspaces": "node scripts/check-workspace-contract.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check": "npm run check:foundation && npm run check:workspaces && npm run check:packages && npm test",
+    "check:packages": "node scripts/check-package-contract.mjs",
+    "check:types": "tsc --project packages/contracts/tsconfig.json"
   },
   "engines": {
     "node": ">=22"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3"
   }
 }
