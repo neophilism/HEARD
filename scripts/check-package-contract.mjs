@@ -4,6 +4,9 @@ export function verifyPackages(root=process.cwd()) {
   const read=(name)=>JSON.parse(readFileSync(join(root,name),'utf8'));
   const pkg=read('package.json'),lock=read('package-lock.json');
   if (!Array.isArray(pkg.workspaces) || !pkg.workspaces.includes('packages/*') || lock.lockfileVersion < 3 || lock.packages?.['']?.name!==pkg.name) throw new Error('Workspace lock mismatch');
+  for (const [name, version] of Object.entries({...pkg.dependencies, ...pkg.devDependencies})) {
+    if (!/^\d+\.\d+\.\d+$/.test(version) || lock.packages?.[`node_modules/${name}`]?.version!==version) throw new Error(`Unpinned dependency: ${name}`);
+  }
   const dirs=readdirSync(join(root,'packages'),{withFileTypes:true}).filter(entry=>entry.isDirectory()).map(entry=>entry.name);
   if (!dirs.length) throw new Error('No workspace packages');
   for (const dir of dirs) {

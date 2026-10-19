@@ -11,9 +11,13 @@
     "check:workspaces": "node scripts/check-workspace-contract.mjs",
     "test": "node --test tests/*.test.mjs",
     "check": "npm run check:foundation && npm run check:workspaces && npm run check:packages && npm test",
-    "check:packages": "node scripts/check-package-contract.mjs"
+    "check:packages": "node scripts/check-package-contract.mjs",
+    "check:types": "tsc --project packages/contracts/tsconfig.json"
   },
   "engines": {
     "node": ">=22"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3"
   }
 }
