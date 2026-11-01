@@ -8,7 +8,7 @@ DECLARE public_access boolean;
 BEGIN
  FOREACH table_name IN ARRAY ARRAY[
    'heard_subjects', 'heard_cases', 'heard_case_events',
-   'heard_consent_records', 'heard_private_objects', 'heard_publications'
+   'heard_consent_records', 'heard_private_objects', 'heard_publications', 'heard_resource_grants', 'heard_audit_events', 'heard_jobs'
  ] LOOP
    SELECT c.relrowsecurity, c.relforcerowsecurity,
      EXISTS (SELECT 1 FROM aclexplode(COALESCE(c.relacl, acldefault('r',c.relowner))) a WHERE a.grantee = 0)
@@ -26,3 +26,4 @@ BEGIN
    RAISE EXCEPTION 'Migration version 2 not recorded';
  END IF;
 END $$;
+

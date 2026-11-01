@@ -1,6 +1,6 @@
 -- HEARD-04 initial relational baseline. Apply only to isolated HEARD database.
 BEGIN;
-CREATE EXTENSION IF NOT EXISTS pgcrypto;
+-- gen_random_uuid() is built into supported PostgreSQL; no pgcrypto privileges are needed.
 CREATE TABLE IF NOT EXISTS heard_schema_migrations (
  version integer PRIMARY KEY CHECK(version>0),
  applied_at timestamptz NOT NULL DEFAULT now()
@@ -59,3 +59,4 @@ CREATE TABLE IF NOT EXISTS heard_publications (
 );
 INSERT INTO heard_schema_migrations(version) VALUES(1) ON CONFLICT DO NOTHING;
 COMMIT;
+

@@ -6,7 +6,7 @@ DECLARE policy_count integer;
 BEGIN
  FOREACH relation_name IN ARRAY ARRAY[
    'heard_subjects','heard_cases','heard_case_events',
-   'heard_consent_records','heard_private_objects','heard_publications'
+   'heard_consent_records','heard_private_objects','heard_publications','heard_resource_grants','heard_audit_events','heard_jobs'
  ] LOOP
    SELECT count(*) INTO policy_count
    FROM pg_policy p
@@ -18,3 +18,4 @@ BEGIN
    END IF;
  END LOOP;
 END $$;
+
