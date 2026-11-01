@@ -6,9 +6,19 @@
   "scripts": {
     "check:foundation": "node scripts/check-foundation.mjs",
     "test": "node --test tests/foundation.test.mjs",
-    "check": "npm run check:foundation && npm test"
+    "check": "npm run check:foundation && npm test",
+    "test:database": "node --test tests/database/*.test.mjs",
+    "db:migrate": "node scripts/migrate.mjs",
+    "test:database:wasm": "HEARD_DATABASE_ENGINE=pglite node --test tests/database/migrations.test.mjs"
   },
   "engines": {
     "node": ">=22"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.5.14",
+    "embedded-postgres": "17.11.0-beta.19"
+  },
+  "dependencies": {
+    "pg": "8.23.1"
   }
 }
