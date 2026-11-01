@@ -19,6 +19,12 @@ test('history scanner detects an ephemeral test key deleted from the current tre
     writeFileSync(join(root, 'README.md'), 'Synthetic local repository, no accounts or service credentials.');
     git(['add', '.']); commit('Clean fixture');
     assert.equal(scanHistory(root).passed, true);
+    const cleanHead = spawnSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).stdout.trim();
+    git(['switch', '--quiet', '-c', 'unmerged-fixture']);
+    writeFileSync(join(root, 'unmerged.pem'), generateKeyPairSync('rsa', { modulusLength: 1024 }).privateKey.export({ type: 'pkcs8', format: 'pem' }), { mode: 0o600 });
+    git(['add', '.']); commit('Unmerged synthetic key fixture');
+    git(['switch', '--quiet', '--detach', cleanHead]);
+    assert.equal(scanHistory(root).passed, true, 'unmerged refs are not release history');
     const { privateKey } = generateKeyPairSync('rsa', { modulusLength: 1024 });
     const fixture = privateKey.export({ type: 'pkcs8', format: 'pem' });
     writeFileSync(join(root, 'fixture.pem'), fixture, { mode: 0o600 });
