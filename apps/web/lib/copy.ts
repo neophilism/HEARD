@@ -17,7 +17,8 @@ export const routes = {
   },
   contact: {
     title: 'Contact HEARD',
-    intro: 'Contact and support services are not available in this engineering preview. Please do not send personal or sensitive information.',
+    intro:
+      'Contact and support services are not available in this engineering preview. Please do not send personal or sensitive information.',
   },
 } as const;
 

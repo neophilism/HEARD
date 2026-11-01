@@ -9,8 +9,12 @@ export default function Home() {
         <h1 id="headline">{copy.home.headline}</h1>
         <p className="intro">{copy.home.introduction}</p>
         <div className="actions">
-          <Link className="button" href={copy.home.primaryAction.href}>{copy.home.primaryAction.label}</Link>
-          <Link className="secondary" href={copy.home.secondaryAction.href}>{copy.home.secondaryAction.label} <span aria-hidden="true">↗</span></Link>
+          <Link className="button" href={copy.home.primaryAction.href}>
+            {copy.home.primaryAction.label}
+          </Link>
+          <Link className="secondary" href={copy.home.secondaryAction.href}>
+            {copy.home.secondaryAction.label} <span aria-hidden="true">↗</span>
+          </Link>
         </div>
       </section>
       <section className="pathways" aria-labelledby="pathways">
@@ -19,10 +23,14 @@ export default function Home() {
         <div className="grid">
           {copy.home.cards.map((card, index) => (
             <article key={card.id}>
-              <span className="number" aria-hidden="true">0{index + 1}</span>
+              <span className="number" aria-hidden="true">
+                0{index + 1}
+              </span>
               <h3>{card.title}</h3>
               <p>{card.body}</p>
-              <Link href={card.href}>{card.action} <span aria-hidden="true">↗</span></Link>
+              <Link href={card.href}>
+                {card.action} <span aria-hidden="true">↗</span>
+              </Link>
             </article>
           ))}
         </div>
@@ -31,7 +39,9 @@ export default function Home() {
         <p className="eyebrow">Clarity and care</p>
         <h2 id="privacy">{copy.home.privacyTitle}</h2>
         <p>{copy.home.privacyBody}</p>
-        <Link href="/privacy">{copy.home.privacyAction} <span aria-hidden="true">↗</span></Link>
+        <Link href="/privacy">
+          {copy.home.privacyAction} <span aria-hidden="true">↗</span>
+        </Link>
       </section>
     </>
   );

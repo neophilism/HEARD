@@ -15,12 +15,24 @@
     "check:packages": "node scripts/check-package-contract.mjs",
     "check:types": "tsc --project packages/contracts/tsconfig.json && npm run check:types --workspace @heard/web",
     "dev": "npm run dev --workspace @heard/web",
-    "build": "npm run build --workspace @heard/web"
+    "build": "npm run build --workspace @heard/web",
+    "lint": "biome check apps/web/app apps/web/lib apps/web/next.config.mjs",
+    "format": "biome format --write apps/web/app apps/web/lib apps/web/next.config.mjs",
+    "test:web": "node --test tests/web/*.test.mjs",
+    "check:secrets": "secretlint \"**/*\"",
+    "check:history": "node scripts/check-history-secrets.mjs",
+    "check:dependencies": "npm audit --audit-level=high",
+    "test:integration": "node --test tests/integration/*.test.mjs",
+    "build:artifact": "node scripts/build-web-artifact.mjs"
   },
   "engines": {
     "node": ">=22"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.6.4",
+    "@electric-sql/pglite": "0.5.14",
+    "@secretlint/secretlint-rule-preset-recommend": "13.1.0",
+    "secretlint": "13.1.0",
     "typescript": "5.9.3"
   }
 }

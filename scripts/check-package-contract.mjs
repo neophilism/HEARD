@@ -17,6 +17,23 @@ export function verifyPackages(root=process.cwd()) {
     if (ts.extends!=='../../tsconfig.base.json' || !existsSync(join(root,path,'src/index.d.mts')) || !existsSync(join(root,path,'src/index.mjs'))) throw new Error(`Missing types or runtime: ${path}`);
     if (lock.packages?.[path]?.name!==child.name || lock.packages?.[`node_modules/${child.name}`]?.link!==true) throw new Error(`Unpinned workspace: ${path}`);
   }
-  return {packages:dirs.length,locked:true};
+  let apps=0;
+  if (pkg.workspaces.includes('apps/*')) {
+    for (const entry of readdirSync(join(root,'apps'),{withFileTypes:true}).filter(entry=>entry.isDirectory())) {
+      const path=`apps/${entry.name}`;
+      const app=read(`${path}/package.json`), locked=lock.packages?.[path];
+      if (!app.private || app.type!=='module' || locked?.name!==app.name || lock.packages?.[`node_modules/${app.name}`]?.resolved!==path || lock.packages?.[`node_modules/${app.name}`]?.link!==true) throw new Error(`Unpinned app workspace: ${path}`);
+      for (const section of ['dependencies','devDependencies']) {
+        if (JSON.stringify(app[section]??{})!==JSON.stringify(locked[section]??{})) throw new Error(`App manifest/lock mismatch: ${path}`);
+        for (const [name,version] of Object.entries(app[section]??{})) {
+          const resolved=lock.packages?.[`${path}/node_modules/${name}`]??lock.packages?.[`node_modules/${name}`];
+          if (!/^\d+\.\d+\.\d+$/.test(version) || resolved?.version!==version) throw new Error(`Unpinned app dependency: ${name}`);
+        }
+      }
+      apps++;
+    }
+  }
+  return {packages:dirs.length,apps,locked:true};
 }
 if (process.argv[1]?.endsWith('check-package-contract.mjs')) process.stdout.write(JSON.stringify(verifyPackages())+'\n');
+
