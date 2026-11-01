@@ -1,5 +1,7 @@
 # End-to-End Everywhere adoption and independent review
 
+**Policy precedence (2026-10-13):** `AGENTS.md` authorizes substantive AI-assisted security review and relevant testing without waiting for an independent human audit or E2EESA certification. Older references below to independent review do not create a development/release prerequisite solely from its absence. Keep the independent-review stage honestly pending; never count AI review or fixture checks as an independent expert audit. Actual implementation, cryptographic, authorization, privacy, credential and required-test gates remain.
+
 The owner requested three separate stages on October 11, 2026: implementation,
 complete testing, and later independent expert review. The canonical record is
 `security/e2eesa-status.json`; its schema is `security/e2eesa-status.schema.json`.
@@ -92,3 +94,4 @@ certification.
 High/critical findings require fixes and source-bound retests. Lower-severity
 acceptance follows the standard's independent, scoped, time-limited process.
 Metadata cannot waive an invariant or approval requirement.
+

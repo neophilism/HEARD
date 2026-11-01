@@ -6,8 +6,9 @@
   "scripts": {
     "check:foundation": "node scripts/check-foundation.mjs",
     "test": "node --test tests/*.test.mjs",
-    "check": "npm run check:foundation && npm run check:requirements && npm test",
-    "check:requirements": "node scripts/check-requirements.mjs"
+    "check": "npm run check:foundation && npm run check:requirements && npm run check:privacy-design && npm test",
+    "check:requirements": "node scripts/check-requirements.mjs",
+    "check:privacy-design": "node scripts/check-privacy-design.mjs"
   },
   "engines": {
     "node": ">=22"
