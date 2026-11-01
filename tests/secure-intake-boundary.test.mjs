@@ -15,3 +15,16 @@ test('scoped requests reject missing subject, resource or purpose',()=>{
   assert.throws(()=>assertScopedIntakeRequest({subjectId:'subject01',resourceId:'resource01'}));
   assert.equal(assertScopedIntakeRequest({subjectId:'subject01',resourceId:'resource01',purpose:'status'}),true);
 });
+
+
+test('base endpoints cannot hide routing or credential material in query, fragment or whitespace',()=>{
+  for(const endpoint of ['https://example.org/?token=synthetic','https://example.org/#private','https://exa\nmple.org']) assert.throws(()=>assertIntakeReady({verified:true,apiVersion:'v1',endpoint,capability:'createPrivateInquiry'}));
+});
+test('scope validation rejects blank/control purpose, inherited fields and unapproved extras',()=>{
+  const scope={subjectId:'subject01',resourceId:'resource01',purpose:'status'};
+  for(const purpose of ['    ',' status','status\n']) assert.throws(()=>assertScopedIntakeRequest({...scope,purpose}));
+  assert.throws(()=>assertScopedIntakeRequest(Object.create(scope)));
+  assert.throws(()=>assertScopedIntakeRequest({...scope,contact:'synthetic private field'}));
+  let called=false;const getter={...scope};Object.defineProperty(getter,'subjectId',{get(){called=true;return 'subject01';}});
+  assert.throws(()=>assertScopedIntakeRequest(getter));assert.equal(called,false);
+});
