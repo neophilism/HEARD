@@ -16,9 +16,9 @@ export function scanHistory(repository = project) {
   }
   if (git(['rev-parse', '--show-toplevel']).toString().trim() !== resolve(repository)) throw new Error('Run the history check at the intended repository root.');
   if (git(['rev-parse', '--is-shallow-repository']).toString().trim() !== 'false') throw new Error('Full-history checkout required; refusing a partial history scan.');
-  // Scan complete historical blobs, not patch fragments. Preserve filename hints
-  // so detectors for .npmrc/package.json and other special formats still run.
-  const objects = new Map(git(['rev-list', '--objects', '--all']).toString().trim().split('\n').map(line => [line.slice(0, 40), line.slice(41)]));
+  // Scan every blob reachable from the checked-out release candidate, including
+  // deleted files. Other refs may contain unmerged work and are not release history.
+  const objects = new Map(git(['rev-list', '--objects', 'HEAD']).toString().trim().split('\n').map(line => [line.slice(0, 40), line.slice(41)]));
   const ids = [...objects.keys()];
   if (!ids.length || ids.some(id => !/^[a-f0-9]{40}$/.test(id))) throw new Error('No complete source history available.');
   const types = git(['cat-file', '--batch-check'], ids.join('\n') + '\n').toString().trim().split('\n');
