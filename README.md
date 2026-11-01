@@ -55,3 +55,8 @@ Development progress and live readiness are tracked separately. A completed road
 ## End-to-End Everywhere progress
 
 The canonical [security/e2eesa-status.json](security/e2eesa-status.json) records standard implementation, complete testing and independent expert review separately. Engine Room reads it automatically from GitHub. All initial stages are pending; existing profile locks and approved decisions remain authoritative. Read [adoption and independent-account instructions](docs/E2EESA_ADOPTION.md), and run `python3 scripts/validate_e2eesa_status.py`. Record validation does not establish product security or certification.
+
+
+## Requirements handoff
+
+[Product charter](PRODUCT_REQUIREMENTS.md), [versioned requirements ledger](requirements/ledger.json), [user-role matrix](docs/USER_ROLES.md) and [decision process](docs/ADR/README.md) preserve the approved scope without relying on conversation memory. `npm run check:requirements` verifies all 48 build/acceptance statements and their owners and initial test destinations. It checks planning traceability, not completion of those features.
