@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "kind": "HEARD_SECURE_INTAKE_ADAPTER_BOUNDARY",
+  "status": "PROPOSED_NOT_INTEGRATED",
+  "operations": [
+    {
+      "name": "createPrivateInquiry",
+      "requiredCapability": "private_inquiry.write",
+      "sideEffects": [
+        "private_case_create"
+      ],
+      "public": false
+    },
+    {
+      "name": "readOwnCaseStatus",
+      "requiredCapability": "private_case.status.read",
+      "public": false
+    },
+    {
+      "name": "requestScopedHelperGrant",
+      "requiredCapability": "private_case.grant.write",
+      "public": false
+    }
+  ],
+  "invariants": [
+    "Never expose raw evidence in public API or index",
+    "Consent and grant operations require separately authenticated subject, scoped resource and purpose",
+    "Credentials and service endpoints must be configured server-side",
+    "No public publication, partner export or replication by default",
+    "Remote engine API version and signing profile must be verified before activation"
+  ],
+  "knownContractVersion": null,
+  "liveConnectionVerified": false
+}
