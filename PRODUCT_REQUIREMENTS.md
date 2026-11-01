@@ -1,6 +1,6 @@
 # HEARD Product Requirements
 
-Status: planned foundation. Work unit HEARD-01. Date: 2026-10-18.
+Status: planned foundation. Work unit HEARD-01. Updated: 2026-11-01.
 
 ## Charter
 HEARD provides public rights education, private questions, support discovery, separately consented experience sharing, voluntary assistance and reviewed public stories. It is a distinct Justice For All initiative, not a party signup or donor channel. Approved tagline: Your rights. Your voice. Your next step.
@@ -48,7 +48,7 @@ Requirement IDs are stable by unit. Each downstream unit should add testable chi
 | R-HEARD-27 | Amendments, corrections, withdrawal and public revisions | Editorial | tests/integration/publication/ | Planned |
 | R-HEARD-28 | Content disputes, abuse reports and legally reviewed release policy | Editorial | tests/integration/publication/ | Planned |
 | R-HEARD-29 | Helper registry, categories and credential verification | Collaboration | tests/integration/collaboration/ | Planned |
-| R-HEARD-30 | Mediated -I can help- offers | Collaboration | tests/integration/collaboration/ | Planned |
+| R-HEARD-30 | Mediated “I can help” offers | Collaboration | tests/integration/collaboration/ | Planned |
 | R-HEARD-31 | Contributor-controlled fine-grained evidence grants | Collaboration | tests/integration/collaboration/ | Planned |
 | R-HEARD-32 | Protected contributor-helper messaging | Collaboration | tests/integration/collaboration/ | Planned |
 | R-HEARD-33 | Restricted case collaboration, tasks and notes | Collaboration | tests/integration/collaboration/ | Planned |
@@ -77,3 +77,20 @@ Requirement IDs are stable by unit. Each downstream unit should add testable chi
 
 ## Open decisions
 Jurisdictions, legal review staffing, response capacity, helper vetting, data retention and holds, providers and production spending remain pending. Actual implementation and CI must be verified separately.
+
+
+## Versioned traceability and handoff
+
+[requirements/ledger.json](requirements/ledger.json) version 1 preserves the full build, acceptance and dependency statements for all 48 approved units at source snapshot `cfff7866c7116962ddab9404e46c15c039a496c3`. Each `R-HEARD-NN` covers the complete statement, including every listed feature; downstream refinements use child IDs such as `R-HEARD-09-C01` without renaming the parent. Owners and initial test destinations match the table above. `npm run check:requirements` rejects missing units, duplicated IDs, abridged scope, ownership drift and claims of passed implementation in this planning register.
+
+The ledger is a versioned planning artifact, not a second progress database. `PLANNED` does not mean no work exists: actual PRs, commits, checks and deployment evidence remain the progress authority. On a scope revision, update the canonical plan, charter and ledger in the same reviewed PR; increment `ledgerVersion`, preserve IDs and record additions, replacements and retired requirements in an ADR. Never renumber a retired ID for another feature. The validator forces a deliberate reconciliation when build or acceptance text changes.
+
+The user-role intent is documented in [docs/USER_ROLES.md](docs/USER_ROLES.md). Engineering decision procedure and a copyable record are in [docs/ADR/README.md](docs/ADR/README.md) and [docs/ADR/TEMPLATE.md](docs/ADR/TEMPLATE.md). These documents describe intended controls; they do not establish implemented authorization or a staffed service.
+
+## Approved requirements and proposals
+
+Approved product scope is the charter, six independent journeys, safety boundaries and full unit statements. Settled decisions are recorded in [docs/DECISIONS.md](docs/DECISIONS.md). Its implementation proposals (including stack, hosting and confidentiality modes) remain proposals; their presence does not authorize spending, live accounts or new confidentiality promises. The open policy and operational questions below remain unresolved until an authorized decision is durably recorded. A proposed ADR cannot override approved policy.
+
+## Editorial and organizational independence
+
+HEARD is a distinct, independently deployable Justice For All initiative. Rights education and support must remain available independently of testimony publication, volunteering, donation, party membership or campaigning. No identity, case, helper or donor linkage may be inferred into political participation. Core-platform identity or navigation integration does not grant HEARD case access. Public content distinguishes personal accounts, submitted records, independently corroborated findings, unresolved disputes and corrections. Editorial review must address source quality, jurisdiction, date, conflicts of interest and correction routes without treating lack of corroboration as proof of dishonesty. These are requirements for downstream implementation and review, not claims that a live service already meets them.
