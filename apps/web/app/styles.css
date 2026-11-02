@@ -52,7 +52,7 @@ a:focus-visible {
 .wordmark {
   font-size: 1.9rem;
   font-weight: 800;
-  letter-spacing: -0.08em;
+  letter-spacing: 0;
   text-decoration: none;
 }
 .wordmark span {
@@ -94,16 +94,16 @@ h1,
 h2,
 h3 {
   line-height: 1.1;
-  letter-spacing: -0.04em;
+  letter-spacing: 0;
 }
 h1 {
   max-width: 940px;
-  font-size: clamp(2.6rem, 6vw, 5.5rem);
+  font-size: 5.5rem;
   margin: 1.2rem 0 1.8rem;
   font-weight: 650;
 }
 h2 {
-  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-size: 3.2rem;
   margin: 1rem 0 2.3rem;
 }
 h3 {
@@ -168,7 +168,7 @@ article a {
   min-height: 65vh;
 }
 .reading h1 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: 4rem;
 }
 .availability {
   border-left: 3px solid var(--accent);
@@ -195,6 +195,15 @@ footer {
     flex-direction: column;
     gap: 0.5rem;
   }
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  .reading h1 {
+    font-size: 3.25rem;
+  }
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -209,6 +218,15 @@ footer {
   }
   .hero {
     padding-top: 3rem;
+  }
+  h1 {
+    font-size: 2.75rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  .reading h1 {
+    font-size: 2.5rem;
   }
   .grid {
     grid-template-columns: 1fr;
