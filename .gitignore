@@ -11,3 +11,7 @@ coverage/
 *.key
 private/
 uploads/
+
+
+*.tsbuildinfo
+apps/web/out/

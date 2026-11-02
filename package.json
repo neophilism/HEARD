@@ -3,14 +3,38 @@
   "private": true,
   "version": "0.0.1",
   "description": "HEARD helps people understand their rights and find paths to support and accountability.",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
     "check:foundation": "node scripts/check-foundation.mjs",
-    "test": "node --test tests/*.test.mjs",
-    "check": "npm run check:foundation && npm run check:requirements && npm run check:privacy-design && npm test",
     "check:requirements": "node scripts/check-requirements.mjs",
-    "check:privacy-design": "node scripts/check-privacy-design.mjs"
+    "check:privacy-design": "node scripts/check-privacy-design.mjs",
+    "check:workspaces": "node scripts/check-workspace-contract.mjs",
+    "check:packages": "node scripts/check-package-contract.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check": "npm run check:foundation && npm run check:requirements && npm run check:privacy-design && npm run check:workspaces && npm run check:packages && npm test",
+    "check:types": "tsc --project packages/contracts/tsconfig.json && npm run check:types --workspace @heard/web",
+    "dev": "npm run dev --workspace @heard/web",
+    "build": "npm run build --workspace @heard/web",
+    "lint": "biome check apps/web/app apps/web/lib apps/web/next.config.mjs",
+    "format": "biome format --write apps/web/app apps/web/lib apps/web/next.config.mjs",
+    "test:web": "node --test tests/web/*.test.mjs",
+    "check:secrets": "secretlint \"**/*\"",
+    "check:history": "node scripts/check-history-secrets.mjs",
+    "check:dependencies": "npm audit --audit-level=high",
+    "test:integration": "node --test tests/integration/*.test.mjs",
+    "build:artifact": "node scripts/build-web-artifact.mjs"
   },
   "engines": {
     "node": ">=22"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.6.4",
+    "@electric-sql/pglite": "0.5.14",
+    "@secretlint/secretlint-rule-preset-recommend": "13.1.0",
+    "secretlint": "13.1.0",
+    "typescript": "5.9.3"
   }
 }

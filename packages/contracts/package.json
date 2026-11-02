@@ -1,0 +1,8 @@
+{
+  "name": "@heard/contracts",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "exports": {".": {"types": "./src/index.d.mts", "default": "./src/index.mjs"}},
+  "engines": {"node": ">=22"}
+}

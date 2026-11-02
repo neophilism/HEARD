@@ -1,0 +1,39 @@
+# Proposed replacement for .github/workflows/foundation.yml.
+# Apply only through the authorized fenced write/owner approval path.
+name: HEARD foundation checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  foundation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm run check
+      - run: npm run lint
+      - run: npm run check:types
+      - run: npm run test:integration
+      - run: npm run check:secrets
+      - run: npm run check:history
+      - run: npm run check:dependencies
+      - run: npm run build:artifact
+        env:
+          NEXT_TELEMETRY_DISABLED: '1'
+          HEARD_BUILD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: heard-web-${{ github.event.pull_request.head.sha || github.sha }}
+          path: dist/heard-web-*
+          if-no-files-found: error
