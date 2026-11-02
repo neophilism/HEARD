@@ -1,0 +1,759 @@
+{
+  "schemaVersion": 1,
+  "designVersion": 1,
+  "status": "DESIGN_ONLY",
+  "sourceSnapshot": "41b8c222629cc745e858abe3c50b7c8181f83f4d",
+  "classes": {
+    "C0": "public authorized derivative",
+    "C1": "private metadata",
+    "C2": "confidential originals/narrative",
+    "C3": "identifying or sealed fields"
+  },
+  "components": [
+    {
+      "id": "participant",
+      "description": "Contributor browser/device; can read its authorized local content; compromised device remains a threat.",
+      "implementationStatus": "PLANNED"
+    },
+    {
+      "id": "edge",
+      "description": "Web host/CDN/TLS termination; sees network metadata; must not cache private responses.",
+      "implementationStatus": "PLANNED"
+    },
+    {
+      "id": "private-api",
+      "description": "Purpose-scoped intake/case/authorization boundary; managed processing can read permitted plaintext.",
+      "implementationStatus": "PLANNED"
+    },
+    {
+      "id": "private-db",
+      "description": "Private database and backup processor; managed keys/operators are not proven blind.",
+      "implementationStatus": "PLANNED"
+    },
+    {
+      "id": "original-store",
+      "description": "Private original object storage; encryption-at-rest is not end-to-end encryption.",
+      "implementationStatus": "PLANNED"
+    },
+    {
+      "id": "media-worker",
+      "description": "Isolated scan/transcode/redaction processor; reads only leased objects in managed mode.",
+      "implementationStatus": "PLANNED"
+    },
+    {
+      "id": "reviewer",
+      "description": "Assigned support/editorial recipient; field/asset authorization and auditable decisions required.",
+      "implementationStatus": "PLANNED"
+    },
+    {
+      "id": "helper",
+      "description": "Named recipient with contributor-approved, expiring resource grants; no role-wide case access.",
+      "implementationStatus": "PLANNED"
+    },
+    {
+      "id": "projector",
+      "description": "Release boundary checking current consent, approval, classification and safe derivatives atomically.",
+      "implementationStatus": "PLANNED"
+    },
+    {
+      "id": "public-store",
+      "description": "Approved public tables, media/CDN, search and social previews; no restricted payloads.",
+      "implementationStatus": "PLANNED"
+    },
+    {
+      "id": "public-reader",
+      "description": "Any public visitor, crawler or outside copier; copies cannot reliably be recalled.",
+      "implementationStatus": "PLANNED"
+    },
+    {
+      "id": "identity-provider",
+      "description": "Authentication/session processor; do not conflate authentication with case grants.",
+      "implementationStatus": "PLANNED"
+    },
+    {
+      "id": "notification-provider",
+      "description": "Optional delivery provider; receives contact/routing metadata, never private story payloads.",
+      "implementationStatus": "PLANNED"
+    },
+    {
+      "id": "observability",
+      "description": "Operational metrics/error processor; minimized metadata only, no confidential content.",
+      "implementationStatus": "PLANNED"
+    },
+    {
+      "id": "core",
+      "description": "Justice For All identity/navigation integration; no implicit political/donor or case linkage.",
+      "implementationStatus": "PLANNED"
+    },
+    {
+      "id": "public-source",
+      "description": "FOIA/public citation system; external public metadata only, no private evidence write access.",
+      "implementationStatus": "PLANNED"
+    },
+    {
+      "id": "replica",
+      "description": "Optional Liberty Nodes recipient; authorized public export may persist after withdrawal.",
+      "implementationStatus": "PLANNED"
+    },
+    {
+      "id": "operator",
+      "description": "Scoped infrastructure operator; potential managed-key/data access must be assessed, not hidden.",
+      "implementationStatus": "PLANNED"
+    },
+    {
+      "id": "key-service",
+      "description": "Unselected key custody mechanism; compartment/key-role and recovery tests remain required.",
+      "implementationStatus": "PLANNED"
+    }
+  ],
+  "flows": [
+    {
+      "id": "F01",
+      "data": "Rights guidance and source citations",
+      "classification": "C0",
+      "source": "public-store",
+      "destination": "public-reader",
+      "purpose": "Public education without registration",
+      "intendedRecipients": [
+        "public-reader"
+      ],
+      "plaintextCapableActors": [
+        "public-store",
+        "public-reader",
+        "edge"
+      ],
+      "metadataCapableActors": [
+        "edge",
+        "observability"
+      ],
+      "protection": "Approved public derivative only; no confidentiality claim.",
+      "keyCustody": "Public material needs no confidentiality key claim.",
+      "releaseGate": "PUBLIC_APPROVAL",
+      "requirementIds": [
+        "HEARD-24",
+        "HEARD-26"
+      ],
+      "retentionDecision": "PENDING_POLICY; minimize retention, isolate legal holds, do not invent deletion periods.",
+      "implementationStatus": "PLANNED"
+    },
+    {
+      "id": "F02",
+      "data": "Private question and optional contact",
+      "classification": "C2",
+      "source": "participant",
+      "destination": "private-api",
+      "purpose": "Answer a private question, independent of publication",
+      "intendedRecipients": [
+        "participant",
+        "reviewer"
+      ],
+      "plaintextCapableActors": [
+        "participant",
+        "private-api",
+        "reviewer",
+        "private-db",
+        "operator"
+      ],
+      "metadataCapableActors": [
+        "edge",
+        "observability"
+      ],
+      "protection": "TLS in transit and scoped managed storage proposed; runtime evidence pending.",
+      "keyCustody": "Managed processing proposed; key-service/private provider custody and operator access unverified. Not E2EE.",
+      "releaseGate": "PRIVATE_SCOPE",
+      "requirementIds": [
+        "HEARD-07",
+        "HEARD-08",
+        "HEARD-22"
+      ],
+      "retentionDecision": "PENDING_POLICY; minimize retention, isolate legal holds, do not invent deletion periods.",
+      "implementationStatus": "PLANNED"
+    },
+    {
+      "id": "F03",
+      "data": "Private experience narrative and case context",
+      "classification": "C2",
+      "source": "private-api",
+      "destination": "private-db",
+      "purpose": "Preserve a contributor-controlled private case",
+      "intendedRecipients": [
+        "participant",
+        "reviewer"
+      ],
+      "plaintextCapableActors": [
+        "participant",
+        "private-api",
+        "private-db",
+        "reviewer",
+        "operator"
+      ],
+      "metadataCapableActors": [
+        "edge",
+        "observability"
+      ],
+      "protection": "TLS in transit and scoped managed storage proposed; runtime evidence pending.",
+      "keyCustody": "Managed processing proposed; key-service/private provider custody and operator access unverified. Not E2EE.",
+      "releaseGate": "PRIVATE_SCOPE",
+      "requirementIds": [
+        "HEARD-09",
+        "HEARD-10",
+        "HEARD-11"
+      ],
+      "retentionDecision": "PENDING_POLICY; minimize retention, isolate legal holds, do not invent deletion periods.",
+      "implementationStatus": "PLANNED"
+    },
+    {
+      "id": "F04",
+      "data": "Original evidence, embedded metadata, hashes and object versions",
+      "classification": "C2",
+      "source": "participant",
+      "destination": "original-store",
+      "purpose": "Quarantined original preservation",
+      "intendedRecipients": [
+        "participant",
+        "reviewer"
+      ],
+      "plaintextCapableActors": [
+        "participant",
+        "original-store",
+        "private-api",
+        "operator"
+      ],
+      "metadataCapableActors": [
+        "edge"
+      ],
+      "protection": "TLS in transit and scoped managed storage proposed; runtime evidence pending.",
+      "keyCustody": "Managed processing proposed; key-service/private provider custody and operator access unverified. Not E2EE.",
+      "releaseGate": "PRIVATE_SCOPE",
+      "requirementIds": [
+        "HEARD-12",
+        "HEARD-13",
+        "HEARD-14"
+      ],
+      "retentionDecision": "PENDING_POLICY; minimize retention, isolate legal holds, do not invent deletion periods.",
+      "implementationStatus": "PLANNED"
+    },
+    {
+      "id": "F05",
+      "data": "Leased original and private processing derivative",
+      "classification": "C2",
+      "source": "original-store",
+      "destination": "media-worker",
+      "purpose": "Scan and create private candidates without public promotion",
+      "intendedRecipients": [
+        "reviewer"
+      ],
+      "plaintextCapableActors": [
+        "original-store",
+        "media-worker",
+        "reviewer",
+        "operator"
+      ],
+      "metadataCapableActors": [
+        "observability"
+      ],
+      "protection": "TLS in transit and scoped managed storage proposed; runtime evidence pending.",
+      "keyCustody": "Managed processing proposed; key-service/private provider custody and operator access unverified. Not E2EE.",
+      "releaseGate": "PRIVATE_SCOPE",
+      "requirementIds": [
+        "HEARD-15",
+        "HEARD-16",
+        "HEARD-17",
+        "HEARD-18"
+      ],
+      "retentionDecision": "PENDING_POLICY; minimize retention, isolate legal holds, do not invent deletion periods.",
+      "implementationStatus": "PLANNED"
+    },
+    {
+      "id": "F06",
+      "data": "Contact, real identity, recovery proof and identity keys",
+      "classification": "C3",
+      "source": "participant",
+      "destination": "private-api",
+      "purpose": "Restricted identity compartment and credential verification",
+      "intendedRecipients": [
+        "participant"
+      ],
+      "plaintextCapableActors": [
+        "participant",
+        "private-api",
+        "private-db",
+        "operator"
+      ],
+      "metadataCapableActors": [
+        "identity-provider",
+        "edge"
+      ],
+      "protection": "TLS in transit and scoped managed storage proposed; runtime evidence pending.",
+      "keyCustody": "Separate identity key compartment required; actual key custody/recovery/dual control unimplemented. Recovery proofs must be one-way verifiers, not recoverable plaintext credentials.",
+      "releaseGate": "IDENTITY_COMPARTMENT",
+      "requirementIds": [
+        "HEARD-07",
+        "HEARD-08"
+      ],
+      "retentionDecision": "PENDING_POLICY; minimize retention, isolate legal holds, do not invent deletion periods.",
+      "implementationStatus": "PLANNED"
+    },
+    {
+      "id": "F07",
+      "data": "Private status, consent history and scoped grant metadata",
+      "classification": "C1",
+      "source": "private-db",
+      "destination": "participant",
+      "purpose": "Own case status and disclosure choices",
+      "intendedRecipients": [
+        "participant"
+      ],
+      "plaintextCapableActors": [
+        "participant",
+        "private-api",
+        "private-db",
+        "operator"
+      ],
+      "metadataCapableActors": [
+        "edge"
+      ],
+      "protection": "TLS in transit and scoped managed storage proposed; runtime evidence pending.",
+      "keyCustody": "Managed processing proposed; key-service/private provider custody and operator access unverified. Not E2EE.",
+      "releaseGate": "PRIVATE_SCOPE",
+      "requirementIds": [
+        "HEARD-09",
+        "HEARD-22",
+        "HEARD-31"
+      ],
+      "retentionDecision": "PENDING_POLICY; minimize retention, isolate legal holds, do not invent deletion periods.",
+      "implementationStatus": "PLANNED"
+    },
+    {
+      "id": "F08",
+      "data": "Volunteer qualifications, contact and conflicts",
+      "classification": "C2",
+      "source": "helper",
+      "destination": "private-api",
+      "purpose": "Mediated offers without contributor contact exposure",
+      "intendedRecipients": [
+        "helper",
+        "reviewer"
+      ],
+      "plaintextCapableActors": [
+        "helper",
+        "private-api",
+        "private-db",
+        "reviewer",
+        "operator"
+      ],
+      "metadataCapableActors": [
+        "edge"
+      ],
+      "protection": "TLS in transit and scoped managed storage proposed; runtime evidence pending.",
+      "keyCustody": "Managed processing proposed; key-service/private provider custody and operator access unverified. Not E2EE.",
+      "releaseGate": "PRIVATE_SCOPE",
+      "requirementIds": [
+        "HEARD-29",
+        "HEARD-30"
+      ],
+      "retentionDecision": "PENDING_POLICY; minimize retention, isolate legal holds, do not invent deletion periods.",
+      "implementationStatus": "PLANNED"
+    },
+    {
+      "id": "F09",
+      "data": "Explicitly granted private assets and purpose/expiry",
+      "classification": "C2",
+      "source": "private-api",
+      "destination": "helper",
+      "purpose": "Contributor-approved limited assistance",
+      "intendedRecipients": [
+        "participant",
+        "helper"
+      ],
+      "plaintextCapableActors": [
+        "participant",
+        "private-api",
+        "original-store",
+        "helper",
+        "operator"
+      ],
+      "metadataCapableActors": [
+        "edge"
+      ],
+      "protection": "TLS in transit and scoped managed storage proposed; runtime evidence pending.",
+      "keyCustody": "Managed processing proposed; key-service/private provider custody and operator access unverified. Not E2EE.",
+      "releaseGate": "RECIPIENT_GRANT",
+      "requirementIds": [
+        "HEARD-31",
+        "HEARD-33",
+        "HEARD-35"
+      ],
+      "retentionDecision": "PENDING_POLICY; minimize retention, isolate legal holds, do not invent deletion periods.",
+      "implementationStatus": "PLANNED"
+    },
+    {
+      "id": "F10",
+      "data": "Approved sanitized narrative, captions and media version",
+      "classification": "C0",
+      "source": "projector",
+      "destination": "public-store",
+      "purpose": "Reviewed voluntary publication",
+      "intendedRecipients": [
+        "public-reader"
+      ],
+      "plaintextCapableActors": [
+        "projector",
+        "public-store",
+        "public-reader",
+        "edge"
+      ],
+      "metadataCapableActors": [
+        "observability"
+      ],
+      "protection": "Approved public derivative only; no confidentiality claim.",
+      "keyCustody": "No confidentiality after approved release; originals remain private. Public-only manifests exclude identity and private hashes.",
+      "releaseGate": "CONSENT_AND_REVIEW",
+      "requirementIds": [
+        "HEARD-19",
+        "HEARD-23",
+        "HEARD-24",
+        "HEARD-27"
+      ],
+      "retentionDecision": "PENDING_POLICY; minimize retention, isolate legal holds, do not invent deletion periods.",
+      "implementationStatus": "PLANNED"
+    },
+    {
+      "id": "F11",
+      "data": "Public signed versioned replication package",
+      "classification": "C0",
+      "source": "public-store",
+      "destination": "replica",
+      "purpose": "Separately opted-in distributed public dissemination",
+      "intendedRecipients": [
+        "replica",
+        "public-reader"
+      ],
+      "plaintextCapableActors": [
+        "public-store",
+        "replica",
+        "public-reader"
+      ],
+      "metadataCapableActors": [
+        "edge"
+      ],
+      "protection": "Approved public derivative only; no confidentiality claim.",
+      "keyCustody": "Public signed manifest; verification is not confidentiality or remote erasure.",
+      "releaseGate": "SEPARATE_REPLICATION_CONSENT",
+      "requirementIds": [
+        "HEARD-38"
+      ],
+      "retentionDecision": "PENDING_POLICY; minimize retention, isolate legal holds, do not invent deletion periods.",
+      "implementationStatus": "PLANNED"
+    },
+    {
+      "id": "F12",
+      "data": "Optional generic notice and delivery address",
+      "classification": "C1",
+      "source": "private-api",
+      "destination": "notification-provider",
+      "purpose": "Opt-in minimal notification without allegation/body/title",
+      "intendedRecipients": [
+        "participant"
+      ],
+      "plaintextCapableActors": [
+        "private-api",
+        "notification-provider",
+        "operator"
+      ],
+      "metadataCapableActors": [
+        "notification-provider",
+        "edge"
+      ],
+      "protection": "TLS in transit and scoped managed storage proposed; runtime evidence pending.",
+      "keyCustody": "Managed processing proposed; key-service/private provider custody and operator access unverified. Not E2EE.",
+      "releaseGate": "CONTACT_OPT_IN",
+      "requirementIds": [
+        "HEARD-34"
+      ],
+      "retentionDecision": "PENDING_POLICY; minimize retention, isolate legal holds, do not invent deletion periods.",
+      "implementationStatus": "PLANNED"
+    },
+    {
+      "id": "F13",
+      "data": "Redacted structured operational metadata",
+      "classification": "C1",
+      "source": "private-api",
+      "destination": "observability",
+      "purpose": "Bounded service health and incident diagnosis",
+      "intendedRecipients": [
+        "operator"
+      ],
+      "plaintextCapableActors": [
+        "private-api",
+        "observability",
+        "operator"
+      ],
+      "metadataCapableActors": [
+        "observability"
+      ],
+      "protection": "TLS in transit and scoped managed storage proposed; runtime evidence pending.",
+      "keyCustody": "Managed processing proposed; key-service/private provider custody and operator access unverified. Not E2EE.",
+      "releaseGate": "MINIMIZED_TELEMETRY",
+      "requirementIds": [
+        "HEARD-42",
+        "HEARD-45"
+      ],
+      "retentionDecision": "PENDING_POLICY; minimize retention, isolate legal holds, do not invent deletion periods.",
+      "implementationStatus": "PLANNED"
+    },
+    {
+      "id": "F14",
+      "data": "Approved identity federation assertion; no case grants",
+      "classification": "C1",
+      "source": "identity-provider",
+      "destination": "core",
+      "purpose": "Optional navigation/identity integration, no political enrollment",
+      "intendedRecipients": [
+        "participant",
+        "core"
+      ],
+      "plaintextCapableActors": [
+        "identity-provider",
+        "core",
+        "private-api",
+        "operator"
+      ],
+      "metadataCapableActors": [
+        "edge"
+      ],
+      "protection": "TLS in transit and scoped managed storage proposed; runtime evidence pending.",
+      "keyCustody": "Managed processing proposed; key-service/private provider custody and operator access unverified. Not E2EE.",
+      "releaseGate": "DISTINCT_FEDERATION_CONSENT",
+      "requirementIds": [
+        "HEARD-36"
+      ],
+      "retentionDecision": "PENDING_POLICY; minimize retention, isolate legal holds, do not invent deletion periods.",
+      "implementationStatus": "PLANNED"
+    },
+    {
+      "id": "F15",
+      "data": "Authoritative public citation IDs and metadata",
+      "classification": "C0",
+      "source": "public-source",
+      "destination": "public-store",
+      "purpose": "Public source bridge with no private evidence export",
+      "intendedRecipients": [
+        "public-reader"
+      ],
+      "plaintextCapableActors": [
+        "public-source",
+        "public-store",
+        "public-reader"
+      ],
+      "metadataCapableActors": [
+        "edge"
+      ],
+      "protection": "Approved public derivative only; no confidentiality claim.",
+      "keyCustody": "Public-source metadata; validate URL/SSRF boundary. No write path to FOIA private storage.",
+      "releaseGate": "PUBLIC_APPROVAL",
+      "requirementIds": [
+        "HEARD-37"
+      ],
+      "retentionDecision": "PENDING_POLICY; minimize retention, isolate legal holds, do not invent deletion periods.",
+      "implementationStatus": "PLANNED"
+    },
+    {
+      "id": "F16",
+      "data": "Participant-helper message and attachment",
+      "classification": "C2",
+      "source": "participant",
+      "destination": "helper",
+      "purpose": "Scoped private messaging only after supported profile decision",
+      "intendedRecipients": [
+        "participant",
+        "helper"
+      ],
+      "plaintextCapableActors": [
+        "participant",
+        "helper"
+      ],
+      "metadataCapableActors": [
+        "private-api",
+        "edge"
+      ],
+      "protection": "TLS in transit and scoped managed storage proposed; runtime evidence pending.",
+      "keyCustody": "Protected E2EE profile unavailable/unimplemented. Endpoint keys and recovery require a pinned reviewed implementation. Keep disabled; managed alternative requires separate approved notice/decision, not silent fallback.",
+      "releaseGate": "PROFILE_UNAVAILABLE_DISABLED",
+      "requirementIds": [
+        "HEARD-32"
+      ],
+      "retentionDecision": "PENDING_POLICY; minimize retention, isolate legal holds, do not invent deletion periods.",
+      "implementationStatus": "PLANNED"
+    }
+  ],
+  "negativeScenarios": [
+    {
+      "id": "N01",
+      "category": "reidentification",
+      "flows": [
+        "F04",
+        "F05",
+        "F10"
+      ],
+      "actors": [
+        "harasser"
+      ],
+      "trigger": "EXIF/voice/face/exact-date and caption clues remain in candidate",
+      "expected": "Block release for redaction review; preserve private original; do not guarantee anonymity.",
+      "testDestination": "tests/security/reidentification/",
+      "status": "PLANNED_NOT_EXECUTED"
+    },
+    {
+      "id": "N02",
+      "category": "political-linkage",
+      "flows": [
+        "F14"
+      ],
+      "actors": [
+        "insider",
+        "provider"
+      ],
+      "trigger": "Core SSO or donor ID is used to enroll/link a case participant",
+      "expected": "Deny implicit linkage/enrollment; require separate voluntary consent and distinct purpose.",
+      "testDestination": "tests/security/independence/",
+      "status": "PLANNED_NOT_EXECUTED"
+    },
+    {
+      "id": "N03",
+      "category": "incorrect-publication",
+      "flows": [
+        "F03",
+        "F05",
+        "F10"
+      ],
+      "actors": [
+        "insider",
+        "malicious-submitter"
+      ],
+      "trigger": "Consent revoked or derivative replaced while release is queued",
+      "expected": "Abort complete projection; require current version/approvals and no retry resurrection.",
+      "testDestination": "tests/integration/publication/",
+      "status": "PLANNED_NOT_EXECUTED"
+    },
+    {
+      "id": "N04",
+      "category": "metadata-export",
+      "flows": [
+        "F02",
+        "F12",
+        "F13"
+      ],
+      "actors": [
+        "provider",
+        "compromised-worker"
+      ],
+      "trigger": "Error payload, email subject or URL preview contains private narrative",
+      "expected": "Reject confidential metadata export; use redacted structured error and generic notice.",
+      "testDestination": "tests/security/metadata/",
+      "status": "PLANNED_NOT_EXECUTED"
+    },
+    {
+      "id": "N05",
+      "category": "helper-overreach",
+      "flows": [
+        "F07",
+        "F09"
+      ],
+      "actors": [
+        "hostile-collaborator",
+        "unauthorized-requester"
+      ],
+      "trigger": "Helper requests unrelated, expired, newly added or revoked resource",
+      "expected": "Deny at API and storage; no inherited grants; audit without content leakage.",
+      "testDestination": "tests/security/authorization/",
+      "status": "PLANNED_NOT_EXECUTED"
+    },
+    {
+      "id": "N06",
+      "category": "false-e2ee",
+      "flows": [
+        "F02",
+        "F06",
+        "F16"
+      ],
+      "actors": [
+        "provider",
+        "unauthorized-requester"
+      ],
+      "trigger": "Managed server-readable processing is advertised as E2EE or anonymous network access",
+      "expected": "Suppress unsupported claim; disabled profile stays disabled; label managed processing honestly.",
+      "testDestination": "tests/security/claims/",
+      "status": "PLANNED_NOT_EXECUTED"
+    },
+    {
+      "id": "N07",
+      "category": "unsafe-upload",
+      "flows": [
+        "F04",
+        "F05"
+      ],
+      "actors": [
+        "malicious-submitter",
+        "compromised-worker"
+      ],
+      "trigger": "Scanner unavailable, parser timeout, archive bomb or injected metadata",
+      "expected": "Remain quarantined; enforce isolation/resource limits; no direct public URL.",
+      "testDestination": "tests/security/quarantine/",
+      "status": "PLANNED_NOT_EXECUTED"
+    },
+    {
+      "id": "N08",
+      "category": "replication-without-consent",
+      "flows": [
+        "F10",
+        "F11"
+      ],
+      "actors": [
+        "insider",
+        "compromised-worker"
+      ],
+      "trigger": "Publication consent is reused for distributed replication",
+      "expected": "Reject export absent separate current replication consent and warn outside-copy limits.",
+      "testDestination": "tests/integration/replication/",
+      "status": "PLANNED_NOT_EXECUTED"
+    },
+    {
+      "id": "N09",
+      "category": "identity-reveal",
+      "flows": [
+        "F06",
+        "F09"
+      ],
+      "actors": [
+        "insider",
+        "hostile-collaborator"
+      ],
+      "trigger": "Administrator or helper role alone requests identity/key compartment",
+      "expected": "Deny without separate permitted recipient/dual-control authorization; no broad key access.",
+      "testDestination": "tests/security/identity/",
+      "status": "PLANNED_NOT_EXECUTED"
+    },
+    {
+      "id": "N10",
+      "category": "cross-case-access",
+      "flows": [
+        "F03",
+        "F07"
+      ],
+      "actors": [
+        "unauthorized-requester"
+      ],
+      "trigger": "Guess a receipt ID or replay another principal session",
+      "expected": "No case existence disclosure or access; require valid scoped proof/session.",
+      "testDestination": "tests/security/intake/",
+      "status": "PLANNED_NOT_EXECUTED"
+    }
+  ],
+  "limitations": [
+    "Design coverage is not a complete source/build/runtime E2EESA inventory or conformance verdict.",
+    "No live service, key provider, processing vendor or retention schedule is established.",
+    "Potential plaintext-capable actors identify exposure, not authorization; every actual access still requires scope and consent.",
+    "Actual data/keys in backups, error paths, browser storage and provider control planes require implementation-bound assessment."
+  ]
+}

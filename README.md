@@ -60,3 +60,11 @@ The canonical [security/e2eesa-status.json](security/e2eesa-status.json) records
 ## Engineering app shell
 
 The public-only Next.js shell lives in `apps/web`. See [workspace setup and verification limits](docs/WORKSPACE_PLAN.md) for `npm ci`, type checking, production export and local development commands. This engineering preview does not accept personal information or provide live case services.
+
+## Requirements handoff
+
+[Product charter](PRODUCT_REQUIREMENTS.md), [versioned requirements ledger](requirements/ledger.json), [user-role matrix](docs/USER_ROLES.md) and [decision process](docs/ADR/README.md) preserve the approved scope without relying on conversation memory. `npm run check:requirements` verifies all 48 build/acceptance statements and their owners and initial test destinations. It checks planning traceability, not completion of those features.
+
+## Privacy architecture handoff
+
+[Threat model and data map](docs/THREAT_MODEL.md) and [versioned privacy design](security/privacy-design.json) enumerate intended boundaries, recipients, potential plaintext exposure and negative-test destinations. `npm run check:privacy-design` validates this design register only; it does not certify runtime security or complete the E2EESA inventory.
